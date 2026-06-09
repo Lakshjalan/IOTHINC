@@ -1,0 +1,450 @@
+<!DOCTYPE html><html class="dark" lang="en" style="width: 1280px; height: 1343px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>IOTHINC Progress Tracker | Member View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body {
+            background-color: #0e0e0f; /* surface-container-lowest */
+            color: #e5e2e3;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(32, 31, 32, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(76, 68, 83, 0.5);
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131314;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4c4453;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#dbb8ff",
+                      "on-tertiary-container": "#29292c",
+                      "on-surface-variant": "#cec2d5",
+                      "surface-tint": "#dbb8ff",
+                      "on-tertiary-fixed": "#1b1b1e",
+                      "primary-fixed": "#efdbff",
+                      "surface-bright": "#3a393a",
+                      "secondary-container": "#474649",
+                      "on-primary-container": "#3f0073",
+                      "tertiary-container": "#919094",
+                      "surface-container-low": "#1c1b1c",
+                      "surface-container-highest": "#353436",
+                      "on-secondary-fixed-variant": "#474649",
+                      "outline": "#978d9e",
+                      "on-surface": "#e5e2e3",
+                      "inverse-surface": "#e5e2e3",
+                      "surface-dim": "#131314",
+                      "primary-container": "#b370fc",
+                      "on-primary-fixed-variant": "#6417ab",
+                      "tertiary": "#c8c6c9",
+                      "inverse-on-surface": "#313031",
+                      "on-primary": "#480082",
+                      "error": "#ffb4ab",
+                      "on-tertiary": "#303033",
+                      "on-secondary-fixed": "#1b1b1d",
+                      "on-secondary": "#303032",
+                      "surface-container-lowest": "#0e0e0f",
+                      "secondary-fixed-dim": "#c8c6c8",
+                      "on-primary-fixed": "#2b0052",
+                      "primary-fixed-dim": "#dbb8ff",
+                      "surface": "#131314",
+                      "background": "#131314",
+                      "tertiary-fixed-dim": "#c8c6c9",
+                      "error-container": "#93000a",
+                      "surface-container": "#201f20",
+                      "on-error": "#690005",
+                      "surface-variant": "#353436",
+                      "tertiary-fixed": "#e4e2e5",
+                      "inverse-primary": "#7d38c4",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#4c4453",
+                      "on-background": "#e5e2e3",
+                      "on-tertiary-fixed-variant": "#47464a",
+                      "surface-container-high": "#2a2a2b",
+                      "secondary": "#c8c6c8",
+                      "secondary-fixed": "#e4e2e4",
+                      "on-secondary-container": "#b7b4b7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "80px",
+                      "base": "8px",
+                      "gutter": "16px",
+                      "stack-md": "12px",
+                      "stack-sm": "4px",
+                      "stack-lg": "24px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "mono-data": ["Geist"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "label-caps": ["Geist"],
+                      "headline-xl": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "body-sm": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="font-body-md text-body-md">
+<!-- Side Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col py-gutter shadow-sm z-50">
+<div class="px-6 mb-10 flex flex-col items-center">
+<img alt="IOTHINC Club Logo" class="w-32 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWlyu94iuCn-f3ztpTJ2RkAns0UOk3Tf5ooRBrslS-XV1cY1-kea1EgMQS_4FrQJlwLYNUq4HCPPhK4191EMXfFJpkn-0dQtOg2mLk-VcoJqRF32LDJycd7YP21M-pFQU4TI6nEOBxrHX7BBIxfNuvk2MWEkCFnH0YRgEgxR5ylp_-UPiJH_K6JLrdEEZ7xImXyh7mM7oDnleWrlo68rp_vaM_L5KqRMhNY-HZi2iRoF6Ic06ehBkNgnn6z9s7fGsy13u2wHafYhA">
+<div class="text-center">
+
+
+</div>
+</div>
+<nav class="flex-grow">
+<ul class="space-y-1">
+<li class=""><a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard</a></li>
+<li class=""><a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="group">group</span> Members</a></li>
+<li class=""><a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="account_tree">account_tree</span> Projects</a></li>
+<li class=""><a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="groups">groups</span> Teams</a></li>
+<li class=""><a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="emoji_events">emoji_events</span> Competitions</a></li>
+<li class=""><a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="event">event</span> Events</a></li>
+<li class=""><a class="flex items-center gap-3 px-6 py-3 text-primary bg-primary-container/10 border-r-4 border-primary transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="assignment">assignment</span> Tasks</a></li>
+<li class=""><a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span> Admin Panel</a></li>
+</ul>
+</nav>
+<div class="px-6 py-4 mt-auto">
+<div class="flex items-center gap-3 p-3 bg-surface-container-high rounded-xl border border-outline-variant">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+</div>
+<div>
+<p class="text-body-sm font-bold text-on-surface">Alex Rivera</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-label-caps">Beta Member</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 min-h-screen">
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant flex items-center justify-between px-container-padding z-40">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-lg text-[20px] font-bold text-primary">Progress Tracker</h2>
+</div>
+<div class="flex items-center gap-6">
+<!-- Toggle View -->
+<div class="flex bg-surface-container-highest p-1 rounded-full border border-outline-variant">
+<button class="px-4 py-1.5 rounded-full text-label-caps text-[11px] font-bold bg-primary text-on-primary shadow-lg transition-all duration-300">MEMBER VIEW</button>
+<button class="px-4 py-1.5 rounded-full text-label-caps text-[11px] font-bold text-on-surface-variant hover:text-on-surface transition-all duration-300">ADMIN VIEW</button>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="settings">settings</span></button>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="pt-24 pb-16 px-container-padding">
+<!-- Hero Header -->
+<div class="mb-10">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-2">My Progress</h1>
+<p class="text-body-md text-on-surface-variant max-w-2xl">Track your tasks, contributions, and growth across all events and projects within the IOTHINC ecosystem.</p>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Active Tasks -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-lg text-[24px] text-on-surface">Active Tasks</h3>
+<div class="flex gap-2">
+<span class="text-body-sm text-on-surface-variant">Sort by: <strong>Due Date</strong></span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="filter_list">filter_list</span>
+</div>
+</div>
+<!-- Task 1 -->
+<div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:border-primary/50 group" style="box-shadow: none;">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-headline-lg text-[18px] font-bold text-on-surface group-hover:text-primary transition-colors">Prepare slide deck for AI Talk</h4>
+<div class="flex items-center gap-4 mt-2">
+<span class="bg-[#3e2c00] text-[#ffb900] px-3 py-1 rounded-full text-label-caps text-[10px]">IN PROGRESS</span>
+<a class="flex items-center gap-1 text-body-sm text-primary hover:underline" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="link">link</span>
+                                        Tech Talk event
+                                    </a>
+</div>
+</div>
+<div class="text-right">
+<p class="text-label-caps text-[11px] text-on-surface-variant mb-1">DUE DATE</p>
+<p class="text-body-md font-bold text-on-surface">Oct 22</p>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="text-body-sm text-on-surface-variant">Task Completion</span>
+<span class="text-mono-data text-primary">65%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<!-- Admin Comment -->
+<div class="bg-surface-container-high/50 p-4 rounded-xl border-l-4 border-primary mb-6">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Admin Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwjv4_f-Rt5M5XXKSCjiL6O8x0irAsEtsrVHe9IB-0z0KV7DDZEvZEm3DkZ9uTJrzzoQzJRgOd3PRfcbOknymoNc-A4a8QnAxkFaG7GPvVoxENSSKC1H6LNszRd-0VnsahSQdhfgzT9luTeDonyEjrCrTjc5Gr3QJyUOsmUw80MM-yg1g0rq4ZNFq2yKZWoMa__F88Q1X4T0hETbH9dtclc7Y9OkeNvXdOnGHWcgMGfCd2rrm51OEKalXgwqNSapoVTZ3c_gmeSpg">
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-1">
+<span class="text-body-sm font-bold text-primary">Admin Feedback</span>
+<span class="text-[10px] text-on-surface-variant uppercase">2 Hours Ago</span>
+</div>
+<p class="text-body-sm text-on-surface-variant leading-relaxed italic">"Great work on the schematic! Consider optimising the trace widths for higher current paths before the final submisson."</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-transparent border border-outline-variant rounded-lg text-body-sm font-bold text-on-surface hover:bg-surface-variant transition-colors group/btn">
+<span class="material-symbols-outlined text-primary group-hover/btn:scale-110 transition-transform" data-icon="add">add</span> Add Update
+                            </button>
+<button class="px-4 py-2 border border-[#4ade80]/30 text-[#4ade80] rounded-lg text-body-sm font-bold hover:bg-[#4ade80]/10 transition-colors">
+                                Mark as Done
+                            </button>
+</div>
+</div>
+<!-- Task 2 -->
+<div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:border-error/50">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-headline-lg text-[18px] font-bold text-on-surface">Submit PCB schematic review</h4>
+<div class="flex items-center gap-4 mt-2">
+<span class="bg-error-container text-error px-3 py-1 rounded-full text-label-caps text-[10px]">BLOCKED</span>
+<a class="flex items-center gap-1 text-body-sm text-primary hover:underline" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="link">link</span>
+                                        Rover Build project
+                                    </a>
+</div>
+</div>
+<div class="text-right">
+<p class="text-label-caps text-[11px] text-on-surface-variant mb-1">DUE DATE</p>
+<p class="text-body-md font-bold text-on-surface">Oct 25</p>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="text-body-sm text-on-surface-variant">Task Completion</span>
+<span class="text-mono-data text-error">30%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 30%"></div>
+</div>
+</div>
+<p class="text-body-sm text-on-surface-variant italic mb-6">No admin feedback yet</p>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant rounded-lg text-body-sm font-bold text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span> Add Update
+                            </button>
+<button class="px-4 py-2 border border-[#4ade80]/30 text-[#4ade80] rounded-lg text-body-sm font-bold hover:bg-[#4ade80]/10 transition-colors">
+                                Mark as Done
+                            </button>
+</div>
+</div>
+<!-- Task 3 -->
+<div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:border-outline">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-headline-lg text-[18px] font-bold text-on-surface">Write project summary report</h4>
+<div class="flex items-center gap-4 mt-2">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full text-label-caps text-[10px]">NOT STARTED</span>
+<a class="flex items-center gap-1 text-body-sm text-primary hover:underline" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="link">link</span>
+                                        Club OS Dashboard
+                                    </a>
+</div>
+</div>
+<div class="text-right">
+<p class="text-label-caps text-[11px] text-on-surface-variant mb-1">DUE DATE</p>
+<p class="text-body-md font-bold text-on-surface">Nov 01</p>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between items-center mb-2">
+<span class="text-body-sm text-on-surface-variant">Task Completion</span>
+<span class="text-mono-data text-on-surface-variant">0%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-outline-variant rounded-full" style="width: 0%"></div>
+</div>
+</div>
+<p class="text-body-sm text-on-surface-variant italic mb-6">No admin feedback yet</p>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant rounded-lg text-body-sm font-bold text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span> Add Update
+                            </button>
+<button class="px-4 py-2 border border-[#4ade80]/30 text-[#4ade80] rounded-lg text-body-sm font-bold hover:bg-[#4ade80]/10 transition-colors">
+                                Mark as Done
+                            </button>
+</div>
+</div>
+</div>
+<!-- Right Column: Summary & Sticky Info -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<div class="sticky top-24 space-y-8">
+<!-- Progress Summary -->
+<div class="glass-card rounded-2xl p-6">
+<h3 class="font-headline-lg text-[18px] mb-6">Progress Summary</h3>
+<div class="flex flex-col items-center mb-8">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full" viewBox="0 0 100 100">
+<circle class="text-surface-container-highest" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary progress-ring__circle" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-dasharray="263.89" stroke-dashoffset="153" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-[28px] font-bold text-on-surface">42%</span>
+<span class="text-[10px] text-on-surface-variant font-label-caps tracking-widest uppercase">Overall</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-[11px] font-label-caps text-on-surface-variant mb-1">
+<span class="">ACTIVE TASKS</span>
+<span class="">3 / 8</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 37%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[11px] font-label-caps text-on-surface-variant mb-1">
+<span class="">COMPLETED</span>
+<span class="">5 / 8</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#4ade80]" style="width: 62.5%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Completed Tasks -->
+<div class="glass-card rounded-2xl p-6">
+<h3 class="font-headline-lg text-[18px] mb-4">Completed Tasks</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#4ade80] text-[20px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="text-body-sm font-bold text-on-surface">Setup Dev Environment</p>
+<p class="text-[11px] text-on-surface-variant">Completed Oct 12</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#4ade80] text-[20px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="text-body-sm font-bold text-on-surface">Initial Sensor Test</p>
+<p class="text-[11px] text-on-surface-variant">Completed Oct 08</p>
+</div>
+</li>
+</ul>
+<button class="w-full mt-6 py-2 text-label-caps text-primary hover:text-on-primary-container transition-colors text-center border-t border-outline-variant pt-4">VIEW ALL ARCHIVED</button>
+</div>
+<!-- Badges & Milestones -->
+<div class="glass-card rounded-2xl p-6">
+<h3 class="font-headline-lg text-[18px] mb-4">Badges &amp; Milestones</h3>
+<div class="flex flex-wrap gap-3">
+<!-- Badge Gold -->
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#ffd700]/20 to-[#b8860b]/40 flex items-center justify-center border border-[#ffd700]/30 shadow-[0_0_15px_rgba(255,215,0,0.1)] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[#ffd700] text-[28px]" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<span class="text-[9px] font-label-caps text-center text-on-surface-variant">First Contrib</span>
+</div>
+<!-- Badge Purple -->
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<div class="w-14 h-14 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center border border-primary/30 shadow-[0_0_15px_rgba(219,184,255,0.1)] group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="code" style="font-variation-settings: 'FILL' 1;">code</span>
+</div>
+<span class="text-[9px] font-label-caps text-center text-on-surface-variant">Hackathon</span>
+</div>
+<!-- Badge Locked -->
+<div class="flex flex-col items-center gap-1 opacity-40 grayscale group cursor-help">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-[28px]" data-icon="lock">lock</span>
+</div>
+<span class="text-[9px] font-label-caps text-center text-on-surface-variant">10 Contribs</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Atmospheric Effects -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-30">
+<div class="absolute top-[10%] right-[5%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[10%] left-[20%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]"></div>
+</div>
+<script>
+        // Simple Interaction: Toggle Hover states
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 0 30px rgba(219, 184, 255, 0.05)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = 'none';
+            });
+        });
+
+        // Toggle View Logic (Mock)
+        const toggleButtons = document.querySelectorAll('.rounded-full.text-label-caps');
+        toggleButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                toggleButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary', 'shadow-lg');
+                    b.classList.add('text-on-surface-variant');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary', 'shadow-lg');
+                btn.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+
+
+<div id="snapdom-sandbox" data-snapdom-sandbox="true" aria-hidden="true" style="position: absolute; left: -9999px; top: -9999px; width: 0px; height: 0px; overflow: hidden;"></div></body></html>

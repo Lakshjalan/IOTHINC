@@ -1,0 +1,224 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Nexus Club Management | Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: "#0A0A0C",
+                        surface: "#111116",
+                        "surface-accent": "#18181F",
+                        primary: "#7C5CFC",
+                        "primary-muted": "#9B7EFF",
+                        muted: "#9997A8",
+                        success: "#3ECF8E"
+                    },
+                    fontFamily: {
+                        syne: ["Syne", "sans-serif"],
+                        body: ["DM Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "base": "10px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'DM Sans', sans-serif; background-color: #0A0A0C; }
+        .font-syne { font-family: 'Syne', sans-serif; }
+        
+        .grid-overlay {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            mask-image: radial-gradient(circle, black 40%, transparent 90%);
+        }
+
+        .glow-pulse {
+            animation: glow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { transform: scale(1); opacity: 0.12; }
+            to { transform: scale(1.2); opacity: 0.18; }
+        }
+
+        .input-focus-ring:focus-within {
+            border-color: #7C5CFC;
+            box-shadow: 0 0 0 4px rgba(124, 92, 252, 0.15);
+        }
+
+        .btn-shadow {
+            box-shadow: 0 4px 20px rgba(124, 92, 252, 0.3);
+        }
+
+        .success-shadow {
+            box-shadow: 0 4px 20px rgba(62, 207, 142, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-white selection:bg-primary/30">
+<main class="min-h-screen flex flex-col md:flex-row">
+<!-- LEFT PANEL: Brand & Impact (45%) -->
+<section class="w-full md:w-[45%] relative overflow-hidden flex flex-col justify-between p-12 min-h-screen">
+<!-- Texture & Glow -->
+<div class="absolute inset-0 grid-overlay pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full glow-pulse pointer-events-none"></div>
+<!-- Logo -->
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxy40qeuMnls3d06xw0t5kGox9RUht3mkvxVfsRVQ9ldTgkrCudYy5N9CdhkzQbs-jPw8UuPENeSuX8oy3bVXhahrKbSTuYJcOlaDbPMSY3lAbO7CEIYGa_GeVeZJkmBIFh1btUx6ZB8TSPJbyoyGo1guSAn5Xjxx89sn6NTqKNTaPQdP1uBTPfI0F15QEZIvqfmavGM5uUexHIY2J2UqoQy9JgR6dnejoLavjUYTK1wXGk_6poaTxLm-6mQPkUFzteXmYha6p0_4" alt="IOTHINC Logo" class="absolute top-4 left-4 w-[120px] h-auto block z-10">
+<!-- Content -->
+<div class="relative z-10 max-w-md">
+<h1 class="font-syne font-extrabold text-4xl md:text-5xl leading-tight mb-6">
+                    Manage your club, track your progress,<br>
+<span class="text-primary-muted">build together.</span>
+</h1>
+<p class="text-muted text-lg mb-10 leading-relaxed">
+                    A unified platform for events, contributions, team coordination, and member growth.
+                </p>
+<!-- Stat Chips -->
+<div class="flex flex-col gap-4">
+<!-- Stat 1 -->
+<div class="bg-surface-accent border border-white/10 rounded-base p-4 flex items-center gap-4 w-fit pr-8">
+<div class="w-2.5 h-2.5 rounded-full bg-success shadow-[0_0_8px_rgba(62,207,142,0.8)]"></div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-lg">85</span>
+<span class="text-muted text-sm">Active members</span>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-accent border border-white/10 rounded-base p-4 flex items-center gap-4 w-fit pr-8">
+<div class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(124,92,252,0.8)]"></div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-lg">12</span>
+<span class="text-muted text-sm">Projects in progress</span>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-accent border border-white/10 rounded-base p-4 flex items-center gap-4 w-fit pr-8">
+<div class="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]"></div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-lg">3</span>
+<span class="text-muted text-sm">Upcoming events</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="relative z-10">
+<p class="text-xs text-muted/50 font-medium">
+                    © 2024 TechClub Management System.
+                </p>
+</div>
+</section>
+<!-- RIGHT PANEL: Authentication (55%) -->
+<section class="w-full md:w-[55%] flex flex-col items-center justify-center p-8 md:p-12 relative overflow-y-auto">
+<!-- Background Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="w-full max-w-[420px] relative z-10">
+<!-- Header -->
+<div class="mb-10 text-center">
+<h2 class="font-syne font-bold text-[28px] text-white mb-2">Welcome back</h2>
+<p class="text-[13px] text-muted">Sign in to your TechClub account</p>
+</div>
+<!-- Form -->
+<form class="space-y-5" onsubmit="event.preventDefault();">
+<!-- Email -->
+<div class="space-y-2">
+<div class="relative flex items-center bg-surface border border-white/10 rounded-base h-[46px] px-4 input-focus-ring transition-all group">
+<span class="material-symbols-outlined text-muted text-xl mr-3 group-focus-within:text-primary" data-icon="mail">mail</span>
+<input class="w-full bg-transparent border-none p-0 text-sm focus:ring-0 placeholder:text-muted/50" placeholder="name@nexusclub.com" type="email">
+</div>
+</div>
+<!-- Password -->
+<div class="space-y-2">
+<div class="relative flex items-center bg-surface border border-white/10 rounded-base h-[46px] px-4 input-focus-ring transition-all group">
+<span class="material-symbols-outlined text-muted text-xl mr-3 group-focus-within:text-primary" data-icon="lock">lock</span>
+<input class="w-full bg-transparent border-none p-0 text-sm focus:ring-0 placeholder:text-muted/50" id="password" placeholder="••••••••" type="password">
+<button class="ml-2 text-muted hover:text-white transition-colors" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="visibility" id="eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Row: Options -->
+<div class="flex items-center justify-between text-[13px]">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-4 h-4 rounded border-white/20 bg-surface text-primary focus:ring-primary focus:ring-offset-0" type="checkbox">
+<span class="text-muted group-hover:text-white transition-colors">Remember me</span>
+</label>
+<a class="text-primary hover:text-primary-muted font-medium" href="#">Forgot password?</a>
+</div>
+<!-- Main Action -->
+<div class="pt-4 space-y-4">
+<button class="w-full h-[48px] bg-primary text-white font-bold rounded-base btn-shadow hover:brightness-110 active:scale-[0.99] transition-all" type="submit">
+                            Sign In
+                        </button>
+<button class="w-full h-[48px] bg-transparent border border-white/10 text-muted font-medium rounded-base hover:bg-white/5 active:scale-[0.99] transition-all" type="button">
+                            Request Account Access
+                        </button>
+</div>
+</form>
+<!-- Role Strip -->
+<div class="mt-8 flex items-center justify-center gap-6 py-4 border-t border-white/5">
+<span class="text-[12px] uppercase tracking-wider text-muted font-bold">Roles:</span>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-red-500"></div>
+<span class="text-[12px] text-muted font-medium">Admin</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-amber-500"></div>
+<span class="text-[12px] text-muted font-medium">Coordinator</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-[12px] text-muted font-medium">Member</span>
+</div>
+</div>
+</div>
+<!-- State Previews -->
+<div class="mt-12 space-y-4 pt-12 border-t border-white/5">
+<p class="text-[11px] uppercase tracking-[0.2em] text-muted/40 font-bold mb-4 text-center">System State Previews</p>
+<div class="flex flex-col gap-4">
+<!-- Loading State -->
+<button class="w-full h-[48px] bg-primary text-white font-bold rounded-base opacity-70 cursor-not-allowed flex items-center justify-center gap-3" disabled="">
+<svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+</svg>
+<span class="">Signing in...</span>
+</button>
+<!-- Success State -->
+<button class="w-full h-[48px] bg-success text-white font-bold rounded-base success-shadow flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="check_circle">check_circle</span>
+<span class="">✓ Welcome back!</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.innerText = 'visibility_off';
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.innerText = 'visibility';
+            }
+        }
+    </script>
+
+
+
+
+</body></html>

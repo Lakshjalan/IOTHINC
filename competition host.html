@@ -1,0 +1,324 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Competitions - IOTHINC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary": "#c8c6c9",
+                "outline-variant": "#4c4453",
+                "inverse-primary": "#7d38c4",
+                "surface-variant": "#353436",
+                "surface-container": "#201f20",
+                "outline": "#978d9e",
+                "on-secondary-container": "#b7b4b7",
+                "surface-container-low": "#1c1b1c",
+                "surface-container-lowest": "#0e0e0f",
+                "surface-container-high": "#2a2a2b",
+                "inverse-surface": "#e5e2e3",
+                "tertiary-fixed-dim": "#c8c6c9",
+                "primary-container": "#b370fc",
+                "secondary-fixed-dim": "#c8c6c8",
+                "background": "#131314",
+                "on-error": "#690005",
+                "on-primary-container": "#3f0073",
+                "on-secondary-fixed": "#1b1b1d",
+                "on-tertiary-fixed-variant": "#47464a",
+                "primary": "#dbb8ff",
+                "on-tertiary-container": "#29292c",
+                "on-secondary": "#303032",
+                "secondary-fixed": "#e4e2e4",
+                "on-tertiary": "#303033",
+                "on-surface": "#e5e2e3",
+                "surface-bright": "#3a393a",
+                "error": "#ffb4ab",
+                "secondary-container": "#474649",
+                "on-primary": "#480082",
+                "secondary": "#c8c6c8",
+                "on-primary-fixed-variant": "#6417ab",
+                "on-background": "#e5e2e3",
+                "tertiary-container": "#919094",
+                "inverse-on-surface": "#313031",
+                "error-container": "#93000a",
+                "primary-fixed": "#efdbff",
+                "on-primary-fixed": "#2b0052",
+                "on-tertiary-fixed": "#1b1b1e",
+                "surface": "#131314",
+                "surface-dim": "#131314",
+                "primary-fixed-dim": "#dbb8ff",
+                "on-secondary-fixed-variant": "#474649",
+                "surface-tint": "#dbb8ff",
+                "surface-container-highest": "#353436",
+                "on-surface-variant": "#cec2d5",
+                "on-error-container": "#ffdad6",
+                "tertiary-fixed": "#e4e2e5"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "stack-lg": "24px",
+                "base": "8px",
+                "stack-sm": "4px",
+                "section-gap": "80px",
+                "gutter": "16px",
+                "container-padding": "24px",
+                "stack-md": "12px",
+                "sidebar-width": "260px",
+                "container-max": "1280px",
+                "xl": "48px",
+                "xs": "4px",
+                "lg": "24px",
+                "sm": "8px",
+                "md": "16px"
+        },
+        "fontFamily": {
+                "headline-lg-mobile": [
+                        "Hanken Grotesk"
+                ],
+                "label-caps": [
+                        "Geist"
+                ],
+                "headline-lg": [
+                        "Hanken Grotesk"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "headline-xl": [
+                        "Hanken Grotesk"
+                ],
+                "mono-data": [
+                        "Geist"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Hanken Grotesk"
+                ],
+                "label-md": [
+                        "Geist"
+                ]
+        },
+        "fontSize": {
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "mono-data": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+  body {
+    background-color: theme('colors.surface');
+    color: theme('colors.on-surface');
+  }
+  .glass-panel {
+    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.5) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid theme('colors.outline-variant');
+  }
+</style>
+</head>
+<body class="flex w-full min-h-screen">
+<nav class="fixed left-0 top-0 h-screen w-sidebar-width border-r border-outline-variant shadow-sm flex flex-col py-lg z-50 bg-surface">
+<div class="pl-4 pt-4 mb-2">
+  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj1WJ36h-wGjKLZ4jhU65FA81iPMgBUhP72r3dHumWldXzOO3W_APfFvLfbSLcr6OEd4qutS8I--lM1H8WHW2hixfHXhmJBwTEo0ieLHn4tyZlb7cXAksgH3s-ClH50GQ4hhRJ5bJWMDoewlhV6O6RQJZ4ucVed8gcEdbdXE25VrZEqBnh-LMWigwl2nGaSEvKe__n9-viWEOxxGrsbGKdn-qgeuERBYTjOueqkdduEj6_QaDQhS1V2FmjdRtbHhxlblly1_RZVyg" alt="IOTHINC Logo" class="block w-[120px] h-auto">
+  <div class="mt-2 h-[1px] w-full" style="background-color: rgba(255,255,255,0.07)"></div>
+</div>
+<div class="px-md mb-md">
+<button class="w-full flex items-center justify-center gap-sm bg-primary text-on-primary rounded-lg py-sm font-label-md text-label-md font-bold hover:bg-on-primary-fixed-variant transition-colors duration-150 active:scale-[0.98] transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+      New Project
+    </button>
+</div>
+<div class="flex-1 overflow-y-auto">
+<ul class="flex flex-col gap-xs">
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Members</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label-md text-label-md">Projects</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-md text-label-md">Teams</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-primary bg-primary-container/10 border-l-4 border-primary font-bold hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98] transition-transform text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">emoji_events</span>
+<span class="font-label-md text-label-md">Competitions</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-label-md text-label-md">Events</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-md text-label-md">Tasks</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Admin Panel</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-sm">
+<ul class="flex flex-col gap-xs">
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<div class="flex-1 flex flex-col md:ml-sidebar-width w-full min-h-screen bg-surface">
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 z-40 bg-surface/80 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-lg w-full">
+<div class="flex items-center gap-md">
+<div class="relative focus-within:ring-2 focus-within:ring-primary rounded-lg">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="bg-surface-container-high border-none pl-10 pr-4 py-2 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-0 w-64" placeholder="Search competitions..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container-high relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+<button class="flex items-center gap-2 hover:bg-surface-container-high p-1 pr-3 rounded-full transition-colors">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-label-md text-label-md font-bold border border-outline-variant">
+          JD
+        </div>
+<span class="font-label-md text-label-md text-on-surface font-medium hidden lg:block">Profile</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant hidden lg:block">expand_more</span>
+</button>
+</div>
+</header>
+<main class="flex-1 mt-16 p-md lg:p-lg max-w-container-max mx-auto w-full"><div class="mb-lg flex items-center gap-md"><button class="p-2 hover:bg-surface-container-high rounded-full transition-colors"><span class="material-symbols-outlined">arrow_back</span></button><h2 class="font-headline-xl text-headline-xl text-on-surface">Host a Competition</h2></div><div class="bg-surface-container-low border border-outline-variant rounded-xl p-lg max-w-3xl mx-auto shadow-sm"><form class="space-y-6"><div><label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-wider">Competition Title</label><input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary" placeholder="e.g. Global AI Challenge '24" type="text"></div><div><label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-wider">Type</label><div class="flex flex-wrap gap-2"><span class="px-4 py-2 bg-primary text-on-primary rounded-full font-label-md text-label-md cursor-pointer">Hackathon</span><span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-container-highest">Coding Contest</span><span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-container-highest">Design Jam</span><span class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-md text-label-md cursor-pointer hover:bg-surface-container-highest">Other</span></div></div><div><label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-wider">Description</label><textarea class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary" placeholder="Describe the competition goals, rules, and eligibility..." rows="4"></textarea></div><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-wider">Registration Deadline</label><input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary" type="datetime-local"></div><div><label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-wider">Start Date</label><input class="w-full bg-surface-container-high border-none rounded-lg px-4 py-3 text-on-surface focus:ring-2 focus:ring-primary" type="date"></div></div><div><label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-wider">Format</label><div class="flex gap-2 bg-surface-container-high p-1 rounded-lg w-fit"><button class="px-4 py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface" type="button">Solo</button><button class="px-4 py-1.5 bg-surface rounded-md font-label-md text-label-md text-on-surface shadow-sm" type="button">Team</button><button class="px-4 py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface" type="button">Both</button></div></div><div><label class="block font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-wider">Prize Pool</label><div class="relative"><span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">$</span><input class="w-full bg-surface-container-high border-none rounded-lg pl-8 pr-4 py-3 text-on-surface focus:ring-2 focus:ring-primary" placeholder="0.00" type="text"></div></div><div class="flex items-center justify-between p-4 bg-surface-container-high rounded-lg"><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-bold">Notify all members?</span><span class="text-[12px] text-on-surface-variant">Send a notification to all community members about this event.</span></div><div class="w-12 h-6 bg-primary rounded-full relative cursor-pointer"><div class="absolute right-1 top-1 w-4 h-4 bg-on-primary rounded-full"></div></div></div><div class="flex justify-end gap-4 pt-6 border-t border-outline-variant/30"><button class="px-6 py-2 border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container-high transition-colors" type="button">Save as Draft</button><button class="px-6 py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-bold hover:bg-on-primary-fixed-variant transition-colors shadow-sm" type="submit">Publish Competition</button></div></form></div></main>
+</div>
+
+
+
+
+
+
+</body></html>

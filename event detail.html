@@ -1,0 +1,402 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TechTalk: AI in 2024 | TechNexus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@500;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-container": "#3f0073",
+                      "on-surface-variant": "#cec2d5",
+                      "on-tertiary-fixed-variant": "#47464a",
+                      "on-primary-fixed-variant": "#6417ab",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-highest": "#353436",
+                      "surface-bright": "#3a393a",
+                      "secondary-fixed-dim": "#c8c6c8",
+                      "primary-fixed": "#efdbff",
+                      "primary-container": "#b370fc",
+                      "primary": "#9d5ae5",
+                      "on-tertiary": "#303033",
+                      "surface-container-high": "#2a2a2b",
+                      "secondary-fixed": "#e4e2e4",
+                      "error-container": "#93000a",
+                      "tertiary-fixed-dim": "#c8c6c9",
+                      "inverse-surface": "#e5e2e3",
+                      "secondary": "#c8c6c8",
+                      "inverse-on-surface": "#313031",
+                      "surface-variant": "#353436",
+                      "on-background": "#e5e2e3",
+                      "on-secondary-fixed-variant": "#474649",
+                      "tertiary-container": "#919094",
+                      "on-surface": "#e5e2e3",
+                      "tertiary": "#c8c6c9",
+                      "surface-container-lowest": "#0e0e0f",
+                      "surface": "#131314",
+                      "surface-dim": "#131314",
+                      "secondary-container": "#474649",
+                      "primary-fixed-dim": "#dbb8ff",
+                      "tertiary-fixed": "#e4e2e5",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#b7b4b7",
+                      "background": "#0a0a0b",
+                      "on-secondary": "#303032",
+                      "surface-tint": "#dbb8ff",
+                      "on-error": "#690005",
+                      "outline-variant": "#2d2d30",
+                      "on-tertiary-fixed": "#1b1b1e",
+                      "on-secondary-fixed": "#1b1b1d",
+                      "outline": "#4c4453",
+                      "inverse-primary": "#7d38c4",
+                      "surface-container": "#1a1a1c",
+                      "surface-container-low": "#1c1b1c",
+                      "on-tertiary-container": "#29292c",
+                      "on-primary-fixed": "#2b0052",
+                      "on-primary": "#480082"
+              },
+              "borderRadius": {
+                      "DEFAULT": "8px",
+                      "lg": "12px",
+                      "xl": "16px",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "base": "8px",
+                      "stack-sm": "4px",
+                      "container-padding": "24px",
+                      "stack-md": "12px",
+                      "stack-lg": "24px",
+                      "section-gap": "80px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "mono-data": ["Geist"],
+                      "label-caps": ["Geist"],
+                      "body-sm": ["Inter"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "headline-xl": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 28, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -17px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% + 24px);
+            background: #2d2d30;
+        }
+        .timeline-item:last-child::before {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/30">
+<!-- TopAppBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant z-50 flex flex-col">
+  <div class="p-stack-lg border-b border-outline-variant">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj1WJ36h-wGjKLZ4jhU65FA81iPMgBUhP72r3dHumWldXzOO3W_APfFvLfbSLcr6OEd4qutS8I--lM1H8WHW2hixfHXhmJBwTEo0ieLHn4tyZlb7cXAksgH3s-ClH50GQ4hhRJ5bJWMDoewlhV6O6RQJZ4ucVed8gcEdbdXE25VrZEqBnh-LMWigwl2nGaSEvKe__n9-viWEOxxGrsbGKdn-qgeuERBYTjOueqkdduEj6_QaDQhS1V2FmjdRtbHhxlblly1_RZVyg" alt="IOTHINC" class="w-full object-contain">
+  </div>
+  <nav class="flex-1 overflow-y-auto py-stack-lg px-4 space-y-1">
+    <a href="#" class="flex items-center gap-stack-md px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-white transition-all">
+      <span class="material-symbols-outlined">dashboard</span>
+      <span class="font-label-caps text-label-caps">Dashboard</span>
+    </a>
+    <a href="#" class="flex items-center gap-stack-md px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-white transition-all">
+      <span class="material-symbols-outlined">group</span>
+      <span class="font-label-caps text-label-caps">Members</span>
+    </a>
+    <a href="#" class="flex items-center gap-stack-md px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-white transition-all">
+      <span class="material-symbols-outlined">folder</span>
+      <span class="font-label-caps text-label-caps">Projects</span>
+    </a>
+    <a href="#" class="flex items-center gap-stack-md px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-white transition-all">
+      <span class="material-symbols-outlined">groups</span>
+      <span class="font-label-caps text-label-caps">Teams</span>
+    </a>
+    <a href="#" class="flex items-center gap-stack-md px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-white transition-all">
+      <span class="material-symbols-outlined">emoji_events</span>
+      <span class="font-label-caps text-label-caps">Competitions</span>
+    </a>
+    <a href="#" class="flex items-center gap-stack-md px-3 py-2 rounded-lg bg-primary/10 text-primary border border-primary/30">
+      <span class="material-symbols-outlined">event</span>
+      <span class="font-label-caps text-label-caps">Events</span>
+    </a>
+    <a href="#" class="flex items-center gap-stack-md px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-white transition-all">
+      <span class="material-symbols-outlined">task_alt</span>
+      <span class="font-label-caps text-label-caps">Tasks</span>
+    </a>
+    <a href="#" class="flex items-center gap-stack-md px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-white transition-all">
+      <span class="material-symbols-outlined">admin_panel_settings</span>
+      <span class="font-label-caps text-label-caps">Admin Panel</span>
+    </a>
+  </nav>
+  <div class="p-stack-lg border-t border-outline-variant flex items-center gap-stack-md">
+    <div class="w-8 h-8 rounded-full overflow-hidden border border-outline">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo0ODxcID1arczBr00p1-MnS3Rehjx52vVMevQ49BET0QlV9T5TvJhVTvBgD7dXWJ3lDVYulrFE7si7j-pH_pzQWF9-OchvI46rhIurLzpguAHn61S0_Kwh5MqQjYbATdjSDWrnuZEjL0xQwH3tDx6jz8uGkmVURQzvEC8A6eraAZUHqsPnd3VsM7ByVsUnIcFDtaly2cGHexdqPRlgK3O2A1b-oz5YQlEVgZ3Qchm700x3_E_QnKtmQBK-q4dUuL-q-Da07wIxvs" alt="User" class="w-full h-full object-cover">
+    </div>
+    <div class="flex-1 min-w-0">
+      <p class="text-body-sm font-bold text-white truncate">User Profile</p>
+    </div>
+    <span class="material-symbols-outlined text-on-surface-variant">settings</span>
+  </div>
+</aside>
+<main class="min-h-screen pl-64">
+<!-- Hero Header Section -->
+<section class="bg-surface py-stack-lg border-b border-outline-variant">
+<div class="max-w-[1200px] mx-auto px-container-padding flex flex-col md:flex-row gap-gutter">
+<!-- Left: Title & Info -->
+<div class="flex-1 space-y-stack-md">
+<span class="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 font-label-caps text-[10px] tracking-widest rounded-full border border-blue-500/20 uppercase">Seminar</span>
+<h1 class="font-headline-lg text-headline-lg text-white leading-tight">Tech Talk: AI in 2024</h1>
+<p class="text-on-surface-variant font-body-md max-w-xl">Explore the rapid evolution of Large Language Models and their impact on future engineering paradigms. Join industry leaders for an evening of technical insight.</p>
+<div class="pt-stack-md space-y-stack-md">
+<div class="flex items-center gap-stack-md">
+<span class="text-on-surface-variant font-label-caps text-label-caps">Registration stats:</span>
+<span class="text-primary font-mono-data text-mono-data">45 of 100 seats registered</span>
+</div>
+<div class="w-full max-w-sm h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[45%] transition-all duration-1000 ease-out shadow-[0_0_10px_rgba(157,90,229,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- Right: Metadata Card -->
+<div class="w-full md:w-[380px]">
+<div class="bg-surface-container p-stack-lg rounded-xl border border-outline-variant shadow-lg space-y-stack-lg">
+<div class="grid grid-cols-2 gap-stack-md">
+<div class="space-y-1">
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Date</p>
+<p class="font-body-md text-white">Oct 24, 2024</p>
+</div>
+<div class="space-y-1">
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Time</p>
+<p class="font-body-md text-white">18:00–20:00</p>
+</div>
+<div class="space-y-1">
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Venue</p>
+<p class="font-body-md text-white">Room 302</p>
+</div>
+<div class="space-y-1">
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase text-error">Deadline</p>
+<p class="font-body-md text-error">Oct 22, 2024</p>
+</div>
+</div>
+<div class="flex items-center gap-stack-md pt-base border-t border-outline-variant">
+<img alt="Alex Chen avatar" class="w-10 h-10 rounded-full bg-surface-container-highest" data-alt="Close-up portrait of Alex Chen, a charismatic technical leader with a friendly expression. The lighting is dramatic with a subtle purple rim light, emphasizing a 'technical noir' cinematic style. High detail and professional appearance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkkrjOii_09265h7Qqc69f-LVLdOpELdFzSgHO5NRof0063sXCcHddYQJjJqojk_CttU6oP3xOisQN-uMvMaUpVuXJvv4-IXuflu9dKe6m3xLV9BoDq5L8b6eb8SMhi59znTpQoSatLKSUUc-BRuLGZqXT9Fdxm-V4QiIFZqAF757--fAmsCs5iw1L9GcVcftdGMtQ3y8SA3cHzvZX9-NFIwJIY3eqf2ktiknfll2MCHT1n_TwTJv087kUkPao2PhrgzmHE0BY6mM">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase">Organiser</p>
+<p class="font-body-md text-white">Alex Chen</p>
+</div>
+</div>
+<div class="space-y-stack-md">
+<button class="w-full py-3 bg-primary text-on-primary-container font-headline-lg-mobile text-[16px] font-bold rounded-lg hover:brightness-110 active:scale-[0.98] transition-all">
+                                Register for this Event
+                            </button>
+<div class="flex items-center justify-between py-base px-stack-md rounded-lg bg-surface-container-high border border-outline-variant">
+<div class="flex items-center gap-stack-md">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+<span class="text-body-sm text-on-surface">Get event notifications</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer" onclick="this.querySelector('.toggle-dot').classList.toggle('translate-x-full'); this.querySelector('.toggle-bg').classList.toggle('bg-primary');">
+<div class="toggle-bg w-10 h-5 bg-primary rounded-full transition-colors duration-200"></div>
+<div class="toggle-dot absolute left-1 top-1 bg-white w-3 h-3 rounded-full transition-transform duration-200 transform translate-x-5"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Body Content -->
+<div class="max-w-[1200px] mx-auto px-container-padding py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column -->
+<div class="lg:col-span-8 space-y-section-gap">
+<!-- About Section -->
+<section class="space-y-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-white border-l-4 border-primary pl-stack-md">About this Event</h2>
+<div class="space-y-stack-md text-on-surface-variant leading-relaxed">
+<p class="">The year 2024 marks a pivotal moment in the history of artificial intelligence. As Large Language Models (LLMs) transition from experimental curiosities to core infrastructure, engineers must navigate a landscape defined by rapid scaling and architectural shifts.</p>
+<p class="">This session dives deep into the practical implications of generative AI for software development. We will discuss the integration of agentic workflows, the evolution of RAG (Retrieval-Augmented Generation) architectures, and the ethical considerations that come with deploying autonomous technical assistants at scale.</p>
+</div>
+</section>
+<!-- Schedule Section -->
+<section class="space-y-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-white border-l-4 border-primary pl-stack-md">Schedule</h2>
+<div class="ml-stack-lg space-y-gutter relative">
+<div class="timeline-item relative flex gap-gutter">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+</div>
+<div class="bg-surface-container p-stack-lg rounded-xl border border-outline-variant flex-1">
+<span class="font-mono-data text-primary">18:00</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white mt-1">Welcome &amp; Intro</h3>
+<p class="text-on-surface-variant text-body-sm">Opening remarks and club updates regarding upcoming winter hackathons.</p>
+</div>
+</div>
+<div class="timeline-item relative flex gap-gutter">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="lightbulb">lightbulb</span>
+</div>
+<div class="bg-surface-container p-stack-lg rounded-xl border border-outline-variant flex-1">
+<span class="font-mono-data text-on-surface-variant">18:30</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white mt-1">Main Talk: AI Trends</h3>
+<p class="text-on-surface-variant text-body-sm">Deep dive into LLMs, generative AI, and the impact on daily engineering workflows.</p>
+</div>
+</div>
+<div class="timeline-item relative flex gap-gutter">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="groups">groups</span>
+</div>
+<div class="bg-surface-container p-stack-lg rounded-xl border border-outline-variant flex-1">
+<span class="font-mono-data text-on-surface-variant">19:30</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white mt-1">Q&amp;A and Networking</h3>
+<p class="text-on-surface-variant text-body-sm">Interactive session with Alex Chen and light refreshments.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Resources Section -->
+<section class="space-y-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-white border-l-4 border-primary pl-stack-md">Resources</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<!-- PDF Resource -->
+<div class="group bg-surface-container p-stack-lg rounded-xl border border-outline-variant hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex items-center justify-between mb-stack-md">
+<div class="w-10 h-10 rounded bg-red-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-red-400" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<span class="text-on-surface-variant material-symbols-outlined group-hover:text-primary transition-colors" data-icon="download">download</span>
+</div>
+<h4 class="text-white font-body-md font-bold">Intro_to_LLMs.pdf</h4>
+<p class="text-[12px] text-on-surface-variant font-mono-data mt-1">2.4 MB • PDF Document</p>
+</div>
+<!-- Video Resource -->
+<div class="group bg-surface-container p-stack-lg rounded-xl border border-outline-variant hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex items-center justify-between mb-stack-md">
+<div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="play_circle">play_circle</span>
+</div>
+<span class="text-on-surface-variant material-symbols-outlined group-hover:text-primary transition-colors" data-icon="open_in_new">open_in_new</span>
+</div>
+<h4 class="text-white font-body-md font-bold">Session_Recording.mp4</h4>
+<p class="text-[12px] text-on-surface-variant font-mono-data mt-1">156 MB • Video file</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column (Sticky) -->
+<div class="lg:col-span-4 space-y-stack-lg">
+<div class="sticky top-24 space-y-stack-lg">
+<!-- Registration Status Card -->
+<div class="glass-panel p-stack-lg rounded-xl space-y-stack-md">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">My Registration Status</h3>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase">ID Number</p>
+<p class="text-white font-mono-data">#8824</p>
+</div>
+<span class="px-2 py-1 bg-green-500/10 text-green-400 text-[10px] font-bold rounded border border-green-500/20 uppercase">Confirmed</span>
+</div>
+<button class="w-full py-2 bg-transparent border border-outline text-on-surface-variant font-label-caps text-label-caps rounded hover:bg-surface-container-highest hover:text-white transition-all">
+                            Cancel Registration
+                        </button>
+</div>
+<!-- Project Status Card -->
+<div class="glass-panel p-stack-lg rounded-xl space-y-stack-md">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">My Project Status</h3>
+<div class="space-y-stack-sm">
+<p class="text-[10px] text-on-surface-variant uppercase">Active Task</p>
+<div class="flex justify-between items-center">
+<p class="text-white font-body-sm">Prepare slide deck</p>
+<span class="px-2 py-0.5 bg-amber-500/10 text-amber-400 text-[10px] font-bold rounded border border-amber-500/20 uppercase">In Progress</span>
+</div>
+</div>
+<div class="space-y-stack-sm">
+<div class="flex justify-between text-[10px] font-mono-data">
+<span class="text-on-surface-variant">Progress</span>
+<span class="text-white">40%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-amber-500 w-[40%]"></div>
+</div>
+</div>
+<a class="block text-center text-primary font-label-caps text-label-caps hover:underline mt-stack-md" href="#">Update Status →</a>
+</div>
+<!-- Coordinator Card -->
+<div class="glass-panel p-stack-lg rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-stack-md">
+<div class="relative">
+<img alt="Alex Chen small avatar" class="w-10 h-10 rounded-full" data-alt="A small avatar showing the event coordinator Alex Chen. Professional, minimalist design suitable for a sidebar widget." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnfWRG3Jl0DT8cWireIlzLGXMijq7gWaIxDuOZi7DMM8d-CR4s2vrRpVPTyNxAy2t6OZVdDoDqO4HDWdvo0E5AuYbsujlu79jDqCzOcCchY9IaxKqggSd9JKmQ8phY-ifw2NNd3MyMgMwJGRB9LC3LOJlKJOFkWK12ZIm6KLwsz_n8boxyF-j7GZYdkTvu2klw1azyeTWeti8SdeHJjGyo5YHdLFKyFE5NeoSBKgIqDf6jIQrRV3bZfKaecQw8BG3v6mWo1Ab_wWI">
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-surface-container rounded-full"></div>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase">Coordinator</p>
+<p class="text-white font-body-sm font-bold">Alex Chen</p>
+</div>
+</div>
+<button class="px-4 py-1.5 bg-primary/10 text-primary border border-primary/30 font-label-caps text-label-caps rounded hover:bg-primary/20 transition-all">
+                            Message
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-container-padding max-w-[1200px] mx-auto gap-stack-md">
+<p class="font-label-caps text-label-caps text-on-surface-variant">© 2024 TechNexus Systems. Precision-engineered for technical excellence.</p>
+<div class="flex gap-stack-lg">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for atmospheric effects
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.bg-primary/10');
+            if (glow) {
+                const rect = glow.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                // Add subtle hover effect logic here if desired for glass components
+            }
+        });
+    </script>
+
+
+</body></html>

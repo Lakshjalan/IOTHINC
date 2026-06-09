@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>IOTHINC - Training &amp; Learning</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Hanken Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'obsidian-black': '#131314',
+            'obsidian-dark': '#1c1b1c',
+            'obsidian-card': '#201f20',
+            'obsidian-border': '#353436',
+            'accent-purple': '#dbb8ff',
+            'accent-purple-dim': 'rgba(219, 184, 255, 0.1)',
+            'text-dim': '#978d9e',
+          },
+          fontFamily: {
+            sans: ['Hanken Grotesk', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-scrollbar">
+    /* Custom scrollbar for a sleek dark look */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #131314;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #353436;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4c4453;
+    }
+  </style>
+<style data-purpose="card-styling">
+    .card-border {
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .hover-card:hover {
+      background-color: #2a2a2b;
+      border-color: rgba(219, 184, 255, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-obsidian-black text-white font-sans min-h-screen flex">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-64 flex flex-col h-screen sticky top-0" data-purpose="navigation-sidebar" style="background-color: #0D0D0D; border-right: 1px solid rgba(255,255,255,0.07); box-shadow: none;">
+<!-- Brand Logo Area -->
+<div class="pl-4 pt-4 pr-4">
+<img alt="IOTHINC Logo" class="w-full h-auto block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD0d36_-4n9CnWllFQK6GZMItP-lKexh1igEddyjc7fZ_0gbXlklFxa_gwgmWWAkuzQGSWjFDmjRjVJ9CZJt3a2uTmvLKR3QfCGywlp1DKUVG4cxqiAbfcNVLVags2HFV4wHvYUfxkvIGht6ZhPMI9AgnAjmJ13mhFAintmtHPq7zNoWhPXxoSpP_MLK-QdPqdm-hgZ0IyKYYGsjkffjIAcmScmO07Mtn3mYFmFxDsbTqtMLEYMt6sTOPLm8tzhzlRG_4gDwxcIQk">
+<div class="mt-4 h-px w-full bg-white/10" style="background-color: rgba(255,255,255,0.07)"></div>
+</div>
+<!-- Actions Area -->
+<div class="px-4 mb-6 mt-4">
+<button class="w-full bg-accent-purple/20 hover:bg-accent-purple/30 text-accent-purple py-2.5 rounded-lg flex items-center justify-center gap-2 font-medium transition-all">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+        New Project
+      </button>
+</div>
+<!-- Main Navigation -->
+<nav class="flex-1 px-4 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white hover:bg-obsidian-card rounded-md transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+        Dashboard
+      </a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white hover:bg-obsidian-card rounded-md transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+        Members
+      </a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white hover:bg-obsidian-card rounded-md transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        Projects
+      </a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white hover:bg-obsidian-card rounded-md transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+        Teams
+      </a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white hover:bg-obsidian-card rounded-md transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.703 2.703 0 01-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 01-1.5-.454M9 16v2h6v-2M9 20h6M9 6V4h6v2M9 10V8h6v2"></path></svg>
+        Competitions
+      </a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white hover:bg-obsidian-card rounded-md transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        Events
+      </a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white hover:bg-obsidian-card rounded-md transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+        Tasks
+      </a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white hover:bg-obsidian-card rounded-md transition-colors" href="#">
+<div class="flex items-center gap-3">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          Admin Panel
+        </div>
+<span class="ml-auto text-[10px] font-bold bg-white/10 px-1.5 py-0.5 rounded uppercase tracking-tighter opacity-50">Admin</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-obsidian-card text-accent-purple rounded-md transition-colors border-l-4 border-accent-purple" data-purpose="active-nav-link" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        Learn
+      </a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white hover:bg-obsidian-card rounded-md transition-colors" href="#">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        Reports
+      </a>
+</nav>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 flex flex-col overflow-y-auto">
+<!-- BEGIN: TopHeader -->
+<header class="h-16 border-b border-obsidian-border flex items-center justify-between px-8 bg-obsidian-black/80 backdrop-blur-sm sticky top-0 z-10">
+<div class="relative w-96">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3">
+<svg class="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<input class="w-full bg-obsidian-dark border-obsidian-border text-sm rounded-md pl-10 focus:ring-accent-purple focus:border-accent-purple" placeholder="Search resources..." type="text">
+</div>
+<div class="flex items-center gap-6">
+<button class="text-gray-400 hover:text-white transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+</button>
+<button class="relative text-gray-400 hover:text-white transition-colors">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+<span class="absolute top-0 right-0 h-2.5 w-2.5 bg-red-500 rounded-full border-2 border-obsidian-black"></span>
+</button>
+<div class="h-8 w-px bg-obsidian-border mx-2"></div>
+<div class="flex items-center gap-3">
+<img alt="Profile" class="h-8 w-8 rounded-full border border-accent-purple" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2iQ2FTjurq0MSYf57CceOrjuaALK3E8qQZ3arR9dyjuujqHN7QNaWxXzeie9NWvfYH9EQ4nZ5BBpqG6w8dHN03ughUMPQFhGzEjheuDyxRfMYmJZqp7stj5IsDL6oCs5T153gf9oa8TvvoWOD4OXTikhIAALPLWGPnRMzo22_iohMaANQDj1zgC_Dl5T7xn5Zfs-Wht1k07kcFjq2OUE-6Ft50yUbL2QE3LPZO4OdLGElC8W-8vBZsp_nm-6VVMWqYbqCZjtK1OM">
+<span class="text-sm font-medium">Profile</span>
+</div>
+</div>
+</header>
+<!-- END: TopHeader -->
+<div class="p-8">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-4xl font-bold mb-2">Training &amp; Learning</h1>
+<p class="text-text-dim text-lg">Access club resources, track your learning progress, and earn certifications.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 border border-obsidian-border rounded-lg flex items-center gap-2 hover:bg-obsidian-card transition-colors">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            Saved
+          </button>
+<button class="px-6 py-2 bg-accent-purple text-black font-semibold rounded-lg flex items-center gap-2 hover:opacity-90 transition-all shadow-lg shadow-accent-purple/20">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            Upload Resource
+          </button>
+</div>
+</div>
+<!-- BEGIN: HeroGrid -->
+<div class="grid grid-cols-3 gap-6 mb-12">
+<!-- Learning Path Card -->
+<section class="col-span-2 bg-obsidian-dark border border-obsidian-border rounded-2xl p-8" data-purpose="learning-path-tracker">
+<div class="flex items-center gap-3 mb-6">
+<svg class="h-6 w-6 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+<h2 class="text-2xl font-bold">Your Learning Path</h2>
+</div>
+<div class="bg-obsidian-card border border-obsidian-border p-6 rounded-xl mb-8">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-bold text-lg">Frontend Development Track</h3>
+<p class="text-text-dim text-sm">Module 3: Advanced React Patterns</p>
+</div>
+<span class="text-4xl font-bold italic text-white">68%</span>
+</div>
+<div class="w-full bg-obsidian-border h-3 rounded-full overflow-hidden mb-4">
+<div class="bg-accent-purple h-full w-[68%] shadow-[0_0_10px_rgba(219,184,255,0.5)]"></div>
+</div>
+<div class="flex justify-between text-sm text-text-dim">
+<span class="">12 hrs completed</span>
+<span class="">Est. 4 hrs remaining</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-obsidian-dark border border-obsidian-border p-4 rounded-xl hover:border-accent-purple/50 transition-colors cursor-pointer group">
+<div class="bg-obsidian-border w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:bg-accent-purple/10">
+<svg class="h-5 w-5 text-gray-400 group-hover:text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+</div>
+<h4 class="font-bold text-sm">Video Tutorials</h4>
+<p class="text-xs text-text-dim">24 new videos</p>
+</div>
+<div class="bg-obsidian-dark border border-obsidian-border p-4 rounded-xl hover:border-accent-purple/50 transition-colors cursor-pointer group">
+<div class="bg-obsidian-border w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:bg-accent-purple/10">
+<svg class="h-5 w-5 text-gray-400 group-hover:text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+</div>
+<h4 class="font-bold text-sm">Documentation</h4>
+<p class="text-xs text-text-dim">PDFs &amp; API Refs</p>
+</div>
+<div class="bg-obsidian-dark border border-obsidian-border p-4 rounded-xl hover:border-accent-purple/50 transition-colors cursor-pointer group">
+<div class="bg-obsidian-border w-10 h-10 rounded-lg flex items-center justify-center mb-3 group-hover:bg-accent-purple/10">
+<svg class="h-5 w-5 text-gray-400 group-hover:text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253"></path></svg>
+</div>
+<h4 class="font-bold text-sm">Interactive Courses</h4>
+<p class="text-xs text-text-dim">3 active enrollments</p>
+</div>
+</div>
+</section>
+<!-- Certifications Column -->
+<section class="bg-obsidian-dark border border-obsidian-border rounded-2xl p-6" data-purpose="certifications-list">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-2">
+<svg class="h-6 w-6 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+<h2 class="text-xl font-bold">Certifications</h2>
+</div>
+<a class="text-xs font-bold text-text-dim uppercase tracking-widest hover:text-white" href="#">View All</a>
+</div>
+<div class="space-y-4">
+<!-- Cert Item 1 -->
+<div class="bg-obsidian-card border border-obsidian-border p-4 rounded-xl flex items-center justify-between group cursor-pointer hover-card">
+<div class="flex items-center gap-4">
+<div class="bg-accent-purple-dim w-10 h-10 rounded-lg flex items-center justify-center">
+<svg class="h-5 w-5 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+</div>
+<div>
+<h4 class="font-bold text-sm">Git Fundamentals</h4>
+<p class="text-xs text-text-dim">Issued: Oct 2023</p>
+</div>
+</div>
+<button class="text-text-dim hover:text-white"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg></button>
+</div>
+<!-- Cert Item 2 -->
+<div class="bg-obsidian-card border border-obsidian-border p-4 rounded-xl flex items-center justify-between group cursor-pointer hover-card">
+<div class="flex items-center gap-4">
+<div class="bg-accent-purple-dim w-10 h-10 rounded-lg flex items-center justify-center">
+<svg class="h-5 w-5 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+</div>
+<div>
+<h4 class="font-bold text-sm">UI/UX Basics</h4>
+<p class="text-xs text-text-dim">Issued: Aug 2023</p>
+</div>
+</div>
+<button class="text-text-dim hover:text-white"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg></button>
+</div>
+<!-- Locked Cert Item -->
+<div class="bg-obsidian-black/50 border border-obsidian-border/50 border-dashed p-4 rounded-xl flex items-center opacity-50">
+<div class="flex items-center gap-4 w-full">
+<div class="bg-obsidian-border w-10 h-10 rounded-lg flex items-center justify-center">
+<svg class="h-5 w-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+</div>
+<div>
+<h4 class="font-bold text-sm">React Masterclass</h4>
+<p class="text-xs text-text-dim">Complete Module 3 to unlock</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- END: HeroGrid -->
+<!-- BEGIN: RecommendedSection -->
+<div>
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-3xl font-bold">Recommended for You</h2>
+<span class="text-sm text-text-dim">Based on your recent activity in '<span class="text-accent-purple">Frontend Track</span>'</span>
+</div>
+<div class="grid grid-cols-4 gap-6">
+<!-- Card 1: Video -->
+<div class="bg-obsidian-card border border-obsidian-border rounded-xl overflow-hidden hover:border-accent-purple transition-all group flex flex-col h-full">
+<div class="aspect-video bg-obsidian-border relative flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian-black to-transparent opacity-40"></div>
+<span class="absolute top-3 right-3 bg-obsidian-black/80 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-white">Video</span>
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-full group-hover:scale-110 transition-transform">
+<svg class="h-8 w-8 text-white fill-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" fill-rule="evenodd"></path></svg>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-bold text-lg mb-2">State Management in React</h3>
+<p class="text-text-dim text-sm line-clamp-2 mb-6">Deep dive into Redux Toolkit, Context API, and Zustand for modern applications.</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="flex items-center gap-1.5 text-xs text-text-dim">
+<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  45 mins
+                </span>
+<button class="text-accent-purple text-xs font-bold uppercase tracking-widest hover:underline">Start</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Article -->
+<div class="bg-obsidian-card border border-obsidian-border rounded-xl overflow-hidden hover:border-accent-purple transition-all group flex flex-col h-full">
+<div class="aspect-video bg-obsidian-border relative flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian-black to-transparent opacity-40"></div>
+<span class="absolute top-3 right-3 bg-obsidian-black/80 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-white">Article</span>
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-full group-hover:scale-110 transition-transform">
+<svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l4 4v10a2 2 0 01-2 2z"></path><path d="M14 2v6h6"></path><path d="M7 13h10"></path><path d="M7 17h10"></path><path d="M7 9h5"></path></svg>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-bold text-lg mb-2">Tailwind Best Practices</h3>
+<p class="text-text-dim text-sm line-clamp-2 mb-6">Learn how to organize classes and build scalable design systems with Tailwind CSS.</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="flex items-center gap-1.5 text-xs text-text-dim">
+<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  10 mins read
+                </span>
+<button class="text-accent-purple text-xs font-bold uppercase tracking-widest hover:underline">Read</button>
+</div>
+</div>
+</div>
+<!-- Card 3: PDF -->
+<div class="bg-obsidian-card border border-obsidian-border rounded-xl overflow-hidden hover:border-accent-purple transition-all group flex flex-col h-full">
+<div class="aspect-video bg-obsidian-border relative flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian-black to-transparent opacity-40"></div>
+<span class="absolute top-3 right-3 bg-obsidian-black/80 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-white">PDF</span>
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-full group-hover:scale-110 transition-transform">
+<svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path><path d="M9 9h1a1 1 0 110 2H9V9z"></path><path d="M9 13h1a1 1 0 110 2H9v-2z"></path></svg>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-bold text-lg mb-2">System Design Cheatsheet</h3>
+<p class="text-text-dim text-sm line-clamp-2 mb-6">A quick reference guide for distributed systems, databases, and microservices.</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="flex items-center gap-1.5 text-xs text-text-dim">
+<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  2.4 MB
+                </span>
+<button class="text-accent-purple text-xs font-bold uppercase tracking-widest hover:underline">View</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Workshop -->
+<div class="bg-obsidian-card border border-obsidian-border rounded-xl overflow-hidden hover:border-accent-purple transition-all group flex flex-col h-full">
+<div class="aspect-video bg-obsidian-border relative flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian-black to-transparent opacity-40"></div>
+<span class="absolute top-3 right-3 bg-obsidian-black/80 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-white">Workshop</span>
+<div class="bg-white/10 backdrop-blur-md p-4 rounded-full group-hover:scale-110 transition-transform">
+<svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="font-bold text-lg mb-2">Live: API Integration</h3>
+<p class="text-text-dim text-sm line-clamp-2 mb-6">Join the upcoming weekend workshop on integrating third-party APIs with React.</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="flex items-center gap-1.5 text-xs text-text-dim">
+<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                  Tomorrow
+                </span>
+<button class="text-accent-purple text-xs font-bold uppercase tracking-widest hover:underline">RSVP</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- END: RecommendedSection -->
+</div>
+<!-- BEGIN: MainFooter -->
+<footer class="mt-auto border-t border-obsidian-border p-8 bg-obsidian-black flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-text-dim">© 2024 IOTHINC Management System</p>
+<div class="flex gap-8 text-sm text-text-dim">
+<a class="hover:text-white transition-colors" href="#">Documentation</a>
+<a class="hover:text-white transition-colors" href="#">Support</a>
+<a class="hover:text-white transition-colors" href="#">System Status</a>
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</main>
+<!-- END: MainContent -->
+</body></html>

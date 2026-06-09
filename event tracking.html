@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IOTHINC Hub | Events</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #131314;
+            color: #e5e2e3;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 28, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid #2d2d30;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131314;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2d2d30;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #9d5ae5;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#dbb8ff",
+                        "on-primary": "#480082",
+                        "primary-container": "#b370fc",
+                        "on-primary-container": "#3f0073",
+                        "surface": "#131314",
+                        "surface-container-low": "#1c1b1c",
+                        "surface-container-high": "#2a2a2b",
+                        "outline": "#978d9e",
+                        "outline-variant": "#4c4453",
+                        "on-surface": "#e5e2e3",
+                        "on-surface-variant": "#cec2d5",
+                        "background": "#131314",
+                        "error": "#ffb4ab"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-caps": ["Geist"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "20px"}],
+                        "body-md": ["16px", {"lineHeight": "24px"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface overflow-hidden">
+<!-- Side Navigation Shell -->
+<aside class="w-64 h-full fixed left-0 top-0 bg-surface-container-low border-r border-outline-variant flex flex-col py-6 px-4 z-50">
+<div class="px-4 mb-2">
+<img alt="IOTHINC Logo" class="w-full mb-4 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD0d36_-4n9CnWllFQK6GZMItP-lKexh1igEddyjc7fZ_0gbXlklFxa_gwgmWWAkuzQGSWjFDmjRjVJ9CZJt3a2uTmvLKR3QfCGywlp1DKUVG4cxqiAbfcNVLVags2HFV4wHvYUfxkvIGht6ZhPMI9AgnAjmJ13mhFAintmtHPq7zNoWhPXxoSpP_MLK-QdPqdm-hgZ0IyKYYGsjkffjIAcmScmO07Mtn3mYFmFxDsbTqtMLEYMt6sTOPLm8tzhzlRG_4gDwxcIQk"/>
+<div class="h-px w-full bg-outline-variant mb-6"></div>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto custom-scrollbar">
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 font-body-md text-body-md">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="">Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 font-body-md text-body-md">
+<span class="material-symbols-outlined">group</span>
+<span class="">Members</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 font-body-md text-body-md">
+<span class="material-symbols-outlined">folder_open</span>
+<span class="">Projects</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 font-body-md text-body-md">
+<span class="material-symbols-outlined">groups</span>
+<span class="">Teams</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 font-body-md text-body-md">
+<span class="material-symbols-outlined">emoji_events</span>
+<span class="">Competitions</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-primary font-bold border-r-2 border-primary bg-primary/10 transition-colors cursor-pointer active:scale-95 font-body-md text-body-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
+<span class="">Events</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 font-body-md text-body-md">
+<span class="material-symbols-outlined">assignment</span>
+<span class="">Tasks</span>
+</div>
+<div class="flex items-center justify-between px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 font-body-md text-body-md group/admin">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="">Admin Panel</span>
+</div>
+<span class="text-[10px] bg-outline-variant/30 px-1.5 py-0.5 rounded text-outline group-hover/admin:text-on-surface-variant transition-colors">ADMIN</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 font-body-md text-body-md">
+<span class="material-symbols-outlined">school</span>
+<span class="">Learn</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 font-body-md text-body-md">
+<span class="material-symbols-outlined">analytics</span>
+<span class="">Reports</span>
+</div>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant">
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer font-body-md text-body-md">
+<span class="material-symbols-outlined">settings</span>
+<span class="">Settings</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer font-body-md text-body-md">
+<span class="material-symbols-outlined">logout</span>
+<span class="">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between px-8 h-16 bg-surface/80 backdrop-blur-xl sticky top-0 z-40 border-b border-outline-variant/30">
+<div class="flex items-center gap-4 bg-surface-container-high px-4 py-2 rounded-lg w-96 border border-outline-variant focus-within:ring-1 focus-within:ring-primary transition-all">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full placeholder:text-outline" placeholder="Search events..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<div class="relative">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-all">notifications</span>
+<div class="absolute top-0 right-0 w-2 h-2 bg-red-600 rounded-full border border-surface"></div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-all">help</span>
+</div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<span class="font-label-caps text-label-caps text-on-surface-variant group-hover:text-primary transition-all">PROFILE</span>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-primary/20">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOm14sPHvKv4GyJDPRahevxbLR2zJxP9rKqM2ZXNrLZOSf62C20-0kmqbOA-6D9wdav0q5T9mKb3wa_2clBeh_C3KqKScMrGKsFkIRFYcOiZqXfw1f4JTbzfAIrEfcu1wLaqqOx_IGFprwYeLsasNjIoO99pnMvkQj0kSqVMf2NPKzkyP6MKyHh8D9PH4VjgFN_i-n7uJPq4ykdXrzLYV_2q8kKf5GCvkcoLqtmKAElcV8YpNXMA7wmQfwzMBp4jSFtw_VfTDUwQE"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content Scroll Area -->
+<div class="flex-1 overflow-y-auto custom-scrollbar px-8 py-10">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<h1 class="font-headline-lg text-[40px] leading-tight text-white mb-2">Events</h1>
+<p class="text-on-surface-variant font-body-md">Browse, register, and track your participation in club events.</p>
+</div>
+<button class="flex items-center gap-2 bg-[#9d5ae5] hover:bg-[#8a4cd4] text-white px-6 py-3 rounded-lg font-bold transition-transform active:scale-95 shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined">add</span>
+<span class="">Create Event</span>
+</button>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex gap-3 mb-10 overflow-x-auto pb-2">
+<button class="px-6 py-2 bg-[#9d5ae5] text-white rounded-full font-label-caps text-label-caps shadow-lg shadow-primary/10">ALL</button>
+<button class="px-6 py-2 border border-outline-variant text-on-surface-variant rounded-full font-label-caps text-label-caps hover:border-primary/50 transition-colors">UPCOMING</button>
+<button class="px-6 py-2 border border-outline-variant text-on-surface-variant rounded-full font-label-caps text-label-caps hover:border-primary/50 transition-colors">ONGOING</button>
+<button class="px-6 py-2 border border-outline-variant text-on-surface-variant rounded-full font-label-caps text-label-caps hover:border-primary/50 transition-colors">PAST</button>
+<button class="px-6 py-2 border border-outline-variant text-on-surface-variant rounded-full font-label-caps text-label-caps hover:border-primary/50 transition-colors">MY EVENTS</button>
+</div>
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Left Column - Event Cards -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Event Card 1: Registered -->
+<div class="glass-panel rounded-xl p-6 hover:shadow-xl transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" title="Notify me">notifications</span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded text-[10px] font-bold tracking-widest uppercase">SEMINAR</span>
+</div>
+<h3 class="font-headline-lg text-[20px] text-white mb-2 group-hover:text-primary transition-colors">Tech Talk: AI in 2024</h3>
+<p class="text-on-surface-variant text-body-sm mb-6 max-w-2xl">Explore the rapid evolution of Large Language Models and their impact on future engineering paradigms.</p>
+<div class="flex flex-wrap gap-6 mb-8 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_today</span>
+<span class="text-body-sm">Oct 24, 2024</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span class="text-body-sm">18:00 - 20:00</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<span class="text-body-sm">Room 302</span>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant pt-6">
+<div class="flex items-center gap-2">
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjSEncgxjVUBDOCga5F0WgNrd6oQGtbaJAwobGqqlrpn_2Uw-RHcvzMoHGjxn2nbXPGMFBUwhc96TaiBIzo4Ep_r_MtpvEw3a770RCdktyxyaB8IRqbqJHQSMTUHXEouNF-SHMiBqDSjEiz6Hpb1RWNFfiVgnDxrinJPjoo4Mk2ANsstdoosZNE8XdsJ720dDP6RJEAtnVQ-1kfevyXUYDAtupRj_FcDm0F1asuIRfI7p7Xj1dIbr-rKw4d406f8f7QJY1hqXsy64"/>
+<img alt="Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcO2B98qfzM7NPHVscM0vIBcsRjQRnO8jRc9c7cG8etW9WwQG14e8H6pniaVFnP5V4yPwV76qaTeiw6C014rqym6GKuJfTY_doLup2Kz8Dz4vPwv0VORA3gv7cZFT-gV0-ot8J7AStiIDYB0rctCn0Yy6kt8AG5yR9ZAeArbBZoPpUVaeH-5bmJph5LnJ7SXyHzADrB2T5dicV-TggUMTkdmK8cpxh3WTKgoe-WsOyuum8kOtKEJDxHxFwjIkLfPCnvKjxeKqbyCM"/>
+<img alt="Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9UF4kOaTzEmx9K86dm8BmTtyQmC4IBoCOBEKI9rU1vSp91fQxF2kGJONHWTZMn6FwEhSXYlYJ2cGR8TAu3ybmbbE4W1Y6s1sZUARx3xGl-x4XryLSYt4bRuBGl8-RguLPTAuIjtNwqx_1C0iX8x8svyTeKM51IiUTCNO3qUqJ5ZJmwKW4mfYGQJ85jg2dWx8FfBzZBrJNlUGTpmU6ErUEuRQ8ziuulTtraoJN5xCzdRO4r8RO0sa-EUiH0qeHIzI-CC0Mr-rmo5A"/>
+</div>
+<span class="text-body-sm text-on-surface-variant"><span class="text-white font-bold">45</span> registered</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="bg-emerald-500/10 text-emerald-400 px-4 py-1.5 rounded-full text-body-sm font-semibold flex items-center gap-1">
+                                    Registered <span class="material-symbols-outlined text-[16px]">check_circle</span>
+</span>
+<a class="text-primary hover:underline text-body-sm font-semibold flex items-center gap-1" href="#">
+                                    View My Status <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Event Card 2: Urgent Registration -->
+<div class="glass-panel rounded-xl p-6 hover:shadow-xl transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" title="Notify me">notifications</span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 bg-amber-500/10 text-amber-400 rounded text-[10px] font-bold tracking-widest uppercase">HACKATHON</span>
+</div>
+<h3 class="font-headline-lg text-[20px] text-white mb-2 group-hover:text-primary transition-colors">Fall Hackathon 2024</h3>
+<p class="text-on-surface-variant text-body-sm mb-6 max-w-2xl">48 hours of intense coding, networking, and innovation. Build the future of IoT and technical management.</p>
+<div class="flex flex-wrap gap-6 mb-6 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_today</span>
+<span class="text-body-sm">Nov 02, 2024</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span class="text-body-sm">09:00 (Starts)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<span class="text-body-sm">Main Hall</span>
+</div>
+</div>
+<div class="mb-8">
+<div class="flex justify-between items-center mb-2">
+<span class="text-error text-[12px] font-bold">Registration closes in 3 days</span>
+<span class="text-on-surface-variant text-[12px]">85% Full</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant pt-6">
+<div class="flex items-center gap-2">
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI25kIZWMRYjqKs2taW8owNAr7yzOYJbtmw4rRgUktnq03-_SjDSKMHZZ4mTxCxxyrPmOImhsPmgU5j2ytP_Jtnlng7Y-4nERIzgAkh6Mrnk1DgTd539WIhsdxNfKBm6XPizcMquKklvwls7seWFUKKChEyLx8vRf0nF7rgacz3WuC5XeiFwOFzBMjtg43HdHSpCGK8S_OkutWarT0sySdtFq9eb2f3OSUjjqt2HMSTtqJ81ndMf9QaFBFIZMkC6YIUl9ShVF608c"/>
+<img alt="Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzvCf36OMuP7j6tVLbbGn2N8GFYVv1mSYyuc7f81jE0vysRNkEo6Rb-lv7uVFuGN2v_7GVOaoMJ1SMj1DOUQwi910JrvyfxEfBb8-W8AxPyCVY6tuJyNouEXOpvsIqk-6k_sI71rONo-NIQ1m30ADAPoHOvTrZBa1fCdDa4TlDt65LpyAYOVLkdOZTg_bNh4nypbOjvXrnsvPWp3ZL_erwhW0glNFdNWwatktkepY2LhpaeC7xYdkf2Cjpb9mkOB88PwhyEZdkRDo"/>
+<img alt="Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBacrCUhDBPDvi_eDjT2MvC5F3DguDQLPcPJPFgKCyPDFDBGy5txFU0KJXQCU32GkkN4Pcu3SdLfzUhd-XuWLpVfpOOLQVUcwRxehuSax_5rVO9-1Pohue5l3vl8aUz91oS6p3y-VwTwZ8JFA270_5CTFNJapvGRO1VZ_synVKU2qvLGtkDGjvmcZkA0rJ9oDy5DMJWAwkiY9z9m2OrInDmT6vj_AXkqnsiVS0xa0rzoxuM-4w8yN6jJA5V1l62UN3VHSAOKyjvmLc"/>
+</div>
+<span class="text-body-sm text-on-surface-variant"><span class="text-white font-bold">120</span> registered</span>
+</div>
+<button class="bg-[#9d5ae5] hover:bg-[#8a4cd4] text-white px-8 py-2.5 rounded-lg font-bold transition-transform active:scale-95">
+                                Register Now
+                            </button>
+</div>
+</div>
+<!-- Event Card 3: Standard Workshop -->
+<div class="glass-panel rounded-xl p-6 hover:shadow-xl transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" title="Notify me">notifications</span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded text-[10px] font-bold tracking-widest uppercase">WORKSHOP</span>
+</div>
+<h3 class="font-headline-lg text-[20px] text-white mb-2 group-hover:text-primary transition-colors">PCB Design Workshop</h3>
+<p class="text-on-surface-variant text-body-sm mb-6 max-w-2xl">Hands-on session using KiCad for professional PCB layout. Limited seats available for beginners.</p>
+<div class="flex flex-wrap gap-6 mb-8 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_today</span>
+<span class="text-body-sm">Nov 15, 2024</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+<span class="text-body-sm">14:00 - 17:00</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<span class="text-body-sm">Lab 3</span>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-outline-variant pt-6">
+<div class="flex items-center gap-2">
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlytgdraIy9bXLalkULXvHeqfDyj9pSOYtKHXxU9k55X0RJnMnSFLDvX4FijtHjaztWaymZM0ZDSEKuW6okPcMeghpYZXQ5wCwYhgz6GcGglftagMP-XEssDQQ692eJ35q8_fzPJFGRq16_MNnFaL_XyVIJmFgZzi_BYlD2W2Uuoss-qR98uwNENcnD9G42qRkU6ys6qbd8iw6WZXxk6X6WSxyYqg_zLM8baeDG4oX8lnWelxxcIT3iGlonVZw2ZkFztfcSOHbpmU"/>
+<img alt="Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM4ZGyy3-U-dVK4UDYX2i2OJI-sWM6h-c7M972M9vsm9AY4-dg7PKEJKxk5jTmxFNyI5wjizYeS2vTzCKKV2Iy93mAgx9fgrmz6IynH9W3xUPAWzf204MrS_q3RuD81FfV4KbKk3KY-cBrWtL6IyIkmN0D0Ffsz1Cv927zdm1WgXBCpcgmZ9obJguqMg6Z3Yu1gcgrSx6o2E8ov1OJKrN1XRpsXB4oKKQdjT8pv1XLSzLzLJc-H2smvm0YQbdII6FE4UO9x6lx2SE"/>
+</div>
+<span class="text-body-sm text-on-surface-variant"><span class="text-white font-bold">18</span> registered</span>
+</div>
+<button class="bg-[#9d5ae5] hover:bg-[#8a4cd4] text-white px-8 py-2.5 rounded-lg font-bold transition-transform active:scale-95">
+                                Register Now
+                            </button>
+</div>
+</div>
+</div>
+<!-- Right Sidebar - My Registered Events -->
+<aside class="col-span-12 lg:col-span-4 sticky top-24">
+<div class="glass-panel rounded-xl overflow-hidden shadow-2xl">
+<div class="p-6 border-b border-outline-variant flex items-center justify-between">
+<h2 class="font-headline-lg text-[18px] text-white">My Registered Events</h2>
+<span class="bg-primary/10 text-primary text-[12px] px-2 py-0.5 rounded-md font-bold">2 TOTAL</span>
+</div>
+<div class="p-2">
+<!-- Registered Item 1 -->
+<div class="p-4 rounded-lg hover:bg-surface-container-high transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-body-md font-semibold text-white group-hover:text-primary transition-colors">Tech Talk: AI in 2024</h4>
+<span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-[10px] font-bold">CONFIRMED</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Oct 24 • Room 302</p>
+<a class="text-primary hover:underline text-body-sm font-semibold flex items-center gap-1" href="#">
+                                    View Status <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="h-px bg-outline-variant mx-4"></div>
+<!-- Registered Item 2 -->
+<div class="p-4 rounded-lg hover:bg-surface-container-high transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-body-md font-semibold text-white group-hover:text-primary transition-colors">System Design Prep</h4>
+<span class="px-3 py-1 bg-amber-500/10 text-amber-400 rounded-full text-[10px] font-bold">PENDING</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-3">Oct 28 • Virtual Lab</p>
+<a class="text-primary hover:underline text-body-sm font-semibold flex items-center gap-1" href="#">
+                                    View Status <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low border-t border-outline-variant">
+<a class="w-full flex items-center justify-center gap-2 text-on-surface-variant hover:text-white transition-colors text-body-sm font-bold" href="#">
+                                View All Registered <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Visual Context Image -->
+<div class="mt-8 rounded-xl overflow-hidden glass-panel group">
+<div class="relative h-48 w-full">
+<img alt="Events Visual" class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdI4WBAOlUo-989wg0dYaM3SOipkamAGtUV4BVzEQL_zVbdDkZA2ek76ESWJW6Ovc7FjbpkmA7fkTcjJXDhBIA_ExridD8D_2yYlP51p1ZwUZv1XkYX1-hSITlcefDdYQ0Ym8anpetU2ULkvdGvm8sKFoXAHjq92QmalnFFfPsIEddYryYJ1RkR1oCpnBWoC6itTQucTFcW3uONWdn-1zGDqHU2OZayZbGTwB3R4uVIGzNNWoG3jvyGszRNqvl8wA8yUcBExBQA3U"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#131314] to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<p class="font-label-caps text-label-caps text-primary">COMMUNITY SPOTLIGHT</p>
+<h4 class="text-white font-bold">Last Hackathon Highlight</h4>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<script>
+        // Micro-interactions for hovering and notifications
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        const notifyIcons = document.querySelectorAll('.material-symbols-outlined[title="Notify me"]');
+        notifyIcons.forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                const isFilled = icon.style.fontVariationSettings.includes("'FILL' 1");
+                icon.style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+                icon.classList.toggle('text-primary');
+            });
+        });
+    </script>
+</body></html>

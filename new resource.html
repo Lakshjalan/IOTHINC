@@ -1,0 +1,447 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Training &amp; Learning Resources - TechClub OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary": "#c8c6c9",
+                "outline-variant": "#4c4453",
+                "inverse-primary": "#7d38c4",
+                "surface-variant": "#353436",
+                "surface-container": "#201f20",
+                "outline": "#978d9e",
+                "on-secondary-container": "#b7b4b7",
+                "surface-container-low": "#1c1b1c",
+                "surface-container-lowest": "#0e0e0f",
+                "surface-container-high": "#2a2a2b",
+                "inverse-surface": "#e5e2e3",
+                "tertiary-fixed-dim": "#c8c6c9",
+                "primary-container": "#b370fc",
+                "secondary-fixed-dim": "#c8c6c8",
+                "background": "#131314",
+                "on-error": "#690005",
+                "on-primary-container": "#3f0073",
+                "on-secondary-fixed": "#1b1b1d",
+                "on-tertiary-fixed-variant": "#47464a",
+                "primary": "#dbb8ff",
+                "on-tertiary-container": "#29292c",
+                "on-secondary": "#303032",
+                "secondary-fixed": "#e4e2e4",
+                "on-tertiary": "#303033",
+                "on-surface": "#e5e2e3",
+                "surface-bright": "#3a393a",
+                "error": "#ffb4ab",
+                "secondary-container": "#474649",
+                "on-primary": "#480082",
+                "secondary": "#c8c6c8",
+                "on-primary-fixed-variant": "#6417ab",
+                "on-background": "#e5e2e3",
+                "tertiary-container": "#919094",
+                "inverse-on-surface": "#313031",
+                "error-container": "#93000a",
+                "primary-fixed": "#efdbff",
+                "on-primary-fixed": "#2b0052",
+                "on-tertiary-fixed": "#1b1b1e",
+                "surface": "#131314",
+                "surface-dim": "#131314",
+                "primary-fixed-dim": "#dbb8ff",
+                "on-secondary-fixed-variant": "#474649",
+                "surface-tint": "#dbb8ff",
+                "surface-container-highest": "#353436",
+                "on-surface-variant": "#cec2d5",
+                "on-error-container": "#ffdad6",
+                "tertiary-fixed": "#e4e2e5"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "stack-lg": "24px",
+                "base": "8px",
+                "stack-sm": "4px",
+                "section-gap": "80px",
+                "gutter": "16px",
+                "container-padding": "24px",
+                "stack-md": "12px",
+                "container-max": "1280px",
+                "sidebar-width": "260px"
+        },
+        "fontFamily": {
+                "headline-lg-mobile": [
+                        "Hanken Grotesk"
+                ],
+                "label-caps": [
+                        "Geist"
+                ],
+                "headline-lg": [
+                        "Hanken Grotesk"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "headline-xl": [
+                        "Hanken Grotesk"
+                ],
+                "mono-data": [
+                        "Geist"
+                ]
+        },
+        "fontSize": {
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "mono-data": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "500"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+          font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Ambient depth utility */
+        .ambient-shadow {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #4c4453;
+            border-radius: 4px;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex antialiased">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col bg-surface fixed left-0 top-0 h-screen w-sidebar-width border-r border-outline-variant shadow-sm z-50">
+<div class="px-container-padding py-stack-md border-b border-outline-variant/30 flex items-center gap-3"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj1WJ36h-wGjKLZ4jhU65FA81iPMgBUhP72r3dHumWldXzOO3W_APfFvLfbSLcr6OEd4qutS8I--lM1H8WHW2hixfHXhmJBwTEo0ieLHn4tyZlb7cXAksgH3s-ClH50GQ4hhRJ5bJWMDoewlhV6O6RQJZ4ucVed8gcEdbdXE25VrZEqBnh-LMWigwl2nGaSEvKe__n9-viWEOxxGrsbGKdn-qgeuERBYTjOueqkdduEj6_QaDQhS1V2FmjdRtbHhxlblly1_RZVyg" alt="IOTHINC Logo" class="h-8 w-auto object-contain"></div>
+<div class="p-4">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary font-label-caps text-label-caps py-2 px-4 rounded-lg hover:bg-primary-container transition-colors duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Project
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto py-2"><div class="px-3 space-y-1"><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-lg active:scale-[0.98]" href="#"><span class="material-symbols-outlined">dashboard</span><span class="font-label-caps text-label-caps">Dashboard</span></a><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-lg active:scale-[0.98]" href="#"><span class="material-symbols-outlined">group</span><span class="font-label-caps text-label-caps">Members</span></a><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-lg active:scale-[0.98]" href="#"><span class="material-symbols-outlined">account_tree</span><span class="font-label-caps text-label-caps">Projects</span></a><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-lg active:scale-[0.98]" href="#"><span class="material-symbols-outlined">groups</span><span class="font-label-caps text-label-caps">Teams</span></a><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-lg active:scale-[0.98]" href="#"><span class="material-symbols-outlined">emoji_events</span><span class="font-label-caps text-label-caps">Competitions</span></a><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-lg active:scale-[0.98]" href="#"><span class="material-symbols-outlined">event_available</span><span class="font-label-caps text-label-caps">Events</span></a><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-lg active:scale-[0.98]" href="#"><span class="material-symbols-outlined">assignment</span><span class="font-label-caps text-label-caps">Tasks</span></a><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-lg active:scale-[0.98]" href="#"><span class="material-symbols-outlined">admin_panel_settings</span><span class="font-label-caps text-label-caps">Admin Panel</span></a></div><div class="px-3 mt-6 mb-2"><p class="px-4 text-xs font-semibold text-outline tracking-wider uppercase mb-1">Resources</p></div><div class="px-3 space-y-1"><a class="flex items-center gap-3 px-4 py-3 text-primary bg-primary-container/10 border-l-4 border-primary font-bold rounded-r-lg active:scale-[0.98]" href="#"><span class="material-symbols-outlined fill">description</span><span class="font-label-caps text-label-caps">Learn</span></a><a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-lg active:scale-[0.98]" href="#"><span class="material-symbols-outlined">assessment</span><span class="font-label-caps text-label-caps">Reports</span></a></div></div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col md:ml-[260px] min-w-0">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md fixed top-0 right-0 w-full md:w-[calc(100%-260px)] h-16 z-40 border-b border-outline-variant flex justify-between items-center px-container-padding">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="hidden md:block">
+<!-- Search could go here based on JSON "search_bar": "on_left" -->
+<div class="relative flex items-center focus-within:ring-2 focus-within:ring-primary rounded-lg bg-surface-container-low px-3 py-1.5 border border-outline-variant transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md text-on-surface w-64 placeholder:text-on-surface-variant/60 p-0" placeholder="Search resources..." type="text">
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+<button class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A small circular avatar placeholder image showing a professional headshot of a person, used in the top navigation bar of a modern software interface to represent the current user's profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDQKvAK7-E0RaLa24kidqfLIeKfcng0DB8OCd7whnPylDTVhzR7KTjN9_j7cBYfT4w29xY-xMB4vb7n5o7WGu4zyRx9wr3q7Hf8NXqIsocw2DToQrG7DYMryaQyXS6UYBT7UpfjhRAxrsfy-nW-5LY6iG7iY3ErUIWyGAWssUTzRqnf_KtIAO5dQeBa_-7EYmtoLCQ6l-q5N9t-zK4sr_Bcny4HcxGv8P-Bge6UMQIDRQREzbQ5uo8LYdKa6R4Y3YCm0ptdK4hUV8">
+<span class="hidden lg:block font-label-caps text-label-caps text-on-surface-variant">Profile</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 pt-24 px-4 md:px-container-padding pb-12 overflow-x-hidden max-w-container-max mx-auto w-full">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-background mb-1">Training &amp; Learning</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Access club resources, track your learning progress, and earn certifications.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface text-primary border border-outline-variant rounded-lg font-label-caps text-label-caps hover:bg-surface-container transition-colors ambient-shadow">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+                        Saved
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-lg font-label-caps text-label-caps hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">upload</span>
+                        Upload Resource
+                    </button>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-12 gap-stack-lg">
+<!-- Progress Section (Span 8) -->
+<div class="col-span-12 lg:col-span-8 bg-surface border border-outline-variant rounded-xl p-6 ambient-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+                        Your Learning Path
+                    </h3>
+<div class="bg-surface-container-low rounded-lg p-5 border border-outline-variant/50 mb-6">
+<div class="flex justify-between items-end mb-2">
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface font-bold">Frontend Development Track</h4>
+<p class="text-xs text-on-surface-variant mt-1">Module 3: Advanced React Patterns</p>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary">68%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 mb-4 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 68%"></div>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant">
+<span class="">12 hrs completed</span>
+<span class="">Est. 4 hrs remaining</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="border border-outline-variant rounded-lg p-4 bg-surface hover:border-primary transition-colors cursor-pointer group">
+<div class="w-8 h-8 rounded bg-secondary-container text-on-secondary-container flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</div>
+<h5 class="font-label-caps text-label-caps font-bold text-on-surface">Video Tutorials</h5>
+<p class="text-xs text-on-surface-variant mt-1">24 new videos</p>
+</div>
+<div class="border border-outline-variant rounded-lg p-4 bg-surface hover:border-primary transition-colors cursor-pointer group">
+<div class="w-8 h-8 rounded bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+</div>
+<h5 class="font-label-caps text-label-caps font-bold text-on-surface">Documentation</h5>
+<p class="text-xs text-on-surface-variant mt-1">PDFs &amp; API Refs</p>
+</div>
+<div class="border border-outline-variant rounded-lg p-4 bg-surface hover:border-primary transition-colors cursor-pointer group">
+<div class="w-8 h-8 rounded bg-surface-tint/10 text-surface-tint flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">school</span>
+</div>
+<h5 class="font-label-caps text-label-caps font-bold text-on-surface">Interactive Courses</h5>
+<p class="text-xs text-on-surface-variant mt-1">3 active enrollments</p>
+</div>
+</div>
+</div>
+<!-- Certifications (Span 4) -->
+<div class="col-span-12 lg:col-span-4 bg-surface border border-outline-variant rounded-xl p-6 ambient-shadow flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-lg text-headline-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-container">workspace_premium</span>
+                            Certifications
+                        </h3>
+<button class="text-xs font-label-caps text-primary hover:underline">View All</button>
+</div>
+<div class="flex-1 space-y-4">
+<div class="flex items-center gap-3 p-3 rounded-lg border border-outline-variant/40 bg-surface-container-lowest">
+<div class="w-12 h-12 rounded bg-tertiary-fixed flex items-center justify-center border border-tertiary-container/20">
+<span class="material-symbols-outlined text-tertiary-container text-[24px]">verified</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-caps text-label-caps font-bold text-on-surface">Git Fundamentals</h4>
+<p class="text-[10px] text-on-surface-variant">Issued: Oct 2023</p><p class="text-[10px] text-on-surface-variant/60 mt-1">✓ Reflected in your <a class="text-primary hover:underline" href="/progress">Progress Tracker</a></p>
+</div>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg border border-outline-variant/40 bg-surface-container-lowest">
+<div class="w-12 h-12 rounded bg-secondary-container flex items-center justify-center border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-[24px]">verified</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-caps text-label-caps font-bold text-on-surface">UI/UX Basics</h4>
+<p class="text-[10px] text-on-surface-variant">Issued: Aug 2023</p><p class="text-[10px] text-on-surface-variant/60 mt-1">✓ Reflected in your <a class="text-primary hover:underline" href="/progress">Progress Tracker</a></p>
+</div>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+<!-- Empty State / Upcoming -->
+<div class="flex items-center gap-3 p-3 rounded-lg border border-dashed border-outline-variant bg-transparent opacity-60">
+<div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-[20px]">lock</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-caps text-label-caps font-bold text-on-surface">React Masterclass</h4>
+<p class="text-[10px] text-on-surface-variant">Complete Module 3 to unlock</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recommendations (Span 12) -->
+<div class="col-span-12 mt-8 mb-4"><div class="flex justify-between items-end mb-6 border-b border-outline-variant pb-2"><h3 class="font-headline-xl text-headline-xl text-on-background">Club Resources</h3></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><div class="bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow ambient-shadow flex flex-col"><div class="h-32 bg-surface-container-high relative"><div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-tertiary/10"></div><span class="absolute top-2 right-2 bg-surface text-on-surface text-[10px] font-bold px-2 py-1 rounded-full border border-outline-variant">PDF</span><div class="absolute inset-0 flex items-center justify-center"><span class="material-symbols-outlined text-4xl text-secondary/60">picture_as_pdf</span></div></div><div class="p-4 flex flex-col flex-1"><h4 class="font-label-caps text-label-caps font-bold text-on-surface mb-1">Club Constitution 2024</h4><p class="text-xs text-on-surface-variant mb-4 line-clamp-2">Official governance document</p><div class="mt-auto flex items-center justify-end"><button class="text-primary hover:text-primary-container font-label-caps text-[11px] font-bold">VIEW</button></div></div></div><div class="bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow ambient-shadow flex flex-col"><div class="h-32 bg-surface-container-high relative"><div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-tertiary/10"></div><span class="absolute top-2 right-2 bg-surface text-on-surface text-[10px] font-bold px-2 py-1 rounded-full border border-outline-variant">PDF</span><div class="absolute inset-0 flex items-center justify-center"><span class="material-symbols-outlined text-4xl text-secondary/60">picture_as_pdf</span></div></div><div class="p-4 flex flex-col flex-1"><h4 class="font-label-caps text-label-caps font-bold text-on-surface mb-1">Project Submission Guidelines</h4><p class="text-xs text-on-surface-variant mb-4 line-clamp-2">Standard procedures for club projects</p><div class="mt-auto flex items-center justify-end"><button class="text-primary hover:text-primary-container font-label-caps text-[11px] font-bold">VIEW</button></div></div></div></div></div><div class="col-span-12 mt-4">
+<div class="flex justify-between items-end mb-6 border-b border-outline-variant pb-2">
+<h3 class="font-headline-xl text-headline-xl text-on-background">Recommended for You</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant hidden sm:block">Based on your recent activity in 'Frontend Track'</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow ambient-shadow flex flex-col">
+<div class="h-32 bg-surface-container-high relative">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/10"></div>
+<span class="absolute top-2 right-2 bg-surface text-on-surface text-[10px] font-bold px-2 py-1 rounded-full border border-outline-variant">VIDEO</span>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary/60">play_circle</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h4 class="font-label-caps text-label-caps font-bold text-on-surface mb-1">State Management in React</h4>
+<p class="text-xs text-on-surface-variant mb-4 line-clamp-2">Deep dive into Redux Toolkit, Context API, and Zustand for modern applications.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 45 mins</span>
+<button class="text-primary hover:text-primary-container font-label-caps text-[11px] font-bold">START</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow ambient-shadow flex flex-col">
+<div class="h-32 bg-surface-container-high relative">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary/20 to-primary/10"></div>
+<span class="absolute top-2 right-2 bg-surface text-on-surface text-[10px] font-bold px-2 py-1 rounded-full border border-outline-variant">ARTICLE</span>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-tertiary/60">article</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h4 class="font-label-caps text-label-caps font-bold text-on-surface mb-1">Tailwind Best Practices</h4>
+<p class="text-xs text-on-surface-variant mb-4 line-clamp-2">Learn how to organize classes and build scalable design systems with utility-first CSS.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins read</span>
+<button class="text-primary hover:text-primary-container font-label-caps text-[11px] font-bold">READ</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow ambient-shadow flex flex-col">
+<div class="h-32 bg-surface-container-high relative">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-tertiary/10"></div>
+<span class="absolute top-2 right-2 bg-surface text-on-surface text-[10px] font-bold px-2 py-1 rounded-full border border-outline-variant">PDF</span>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-secondary/60">picture_as_pdf</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h4 class="font-label-caps text-label-caps font-bold text-on-surface mb-1">System Design Cheatsheet</h4>
+<p class="text-xs text-on-surface-variant mb-4 line-clamp-2">A quick reference guide for distributed systems, databases, and scaling strategies.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">download</span> 2.4 MB</span>
+<button class="text-primary hover:text-primary-container font-label-caps text-[11px] font-bold">VIEW</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden hover:shadow-md transition-shadow ambient-shadow flex flex-col">
+<div class="h-32 bg-surface-container-high relative">
+<div class="absolute inset-0 bg-gradient-to-br from-error/10 to-primary/10"></div>
+<span class="absolute top-2 right-2 bg-surface text-on-surface text-[10px] font-bold px-2 py-1 rounded-full border border-outline-variant">WORKSHOP</span>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant/60">group_work</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<h4 class="font-label-caps text-label-caps font-bold text-on-surface mb-1">Live: API Integration</h4>
+<p class="text-xs text-on-surface-variant mb-4 line-clamp-2">Join the upcoming weekend workshop on integrating third-party REST APIs.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-[10px] text-error flex items-center gap-1 font-bold"><span class="material-symbols-outlined text-[14px]">event</span> Tommorow</span>
+<button class="text-primary hover:text-primary-container font-label-caps text-[11px] font-bold">RSVP</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full py-stack-md mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-container-padding max-w-container-max mx-auto gap-4">
+<span class="font-label-caps text-label-caps font-bold text-on-surface">© 2024 TechClub Management System</span>
+<div class="flex flex-wrap gap-4 text-center md:text-left">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#">Documentation</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#">Support</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#">System Status</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</div>
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm"><div class="bg-surface-container border border-outline-variant rounded-xl w-full max-w-2xl shadow-2xl overflow-hidden"><div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center"><h2 class="font-headline-lg text-headline-lg text-on-surface">Upload New Resource</h2><button class="text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined">close</span></button></div><div class="p-6 space-y-6 overflow-y-auto max-h-[80vh]"><div><label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Title</label><input class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 text-on-surface focus:ring-2 focus:ring-primary outline-none" placeholder="e.g. Advanced React Patterns" type="text"></div><div><label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Type</label><div class="flex flex-wrap gap-2"><button class="px-4 py-1.5 rounded-full border border-primary bg-primary/10 text-primary font-label-caps text-[11px] font-bold">VIDEO</button><button class="px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant font-label-caps text-[11px] font-bold hover:border-primary">ARTICLE</button><button class="px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant font-label-caps text-[11px] font-bold hover:border-primary">PDF</button><button class="px-4 py-1.5 rounded-full border border-outline-variant text-on-surface-variant font-label-caps text-[11px] font-bold hover:border-primary">WORKSHOP</button></div></div><div><label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Description</label><textarea class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 text-on-surface focus:ring-2 focus:ring-primary outline-none resize-none" rows="3"></textarea></div><div><label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Learning Track</label><select class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 text-on-surface focus:ring-2 focus:ring-primary outline-none"><option>Frontend Development</option><option>Backend Development</option><option>AI/ML</option><option>Hardware</option><option>General</option></select></div><div><label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">File / URL</label><div class="border-2 border-dashed border-outline-variant rounded-lg p-8 text-center mb-4"><span class="material-symbols-outlined text-outline text-4xl mb-2">upload_file</span><p class="text-body-sm text-on-surface-variant">Drag &amp; drop a file here</p></div><input class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 text-on-surface focus:ring-2 focus:ring-primary outline-none" placeholder="or paste a URL" type="text"></div><div><label class="block font-label-caps text-label-caps text-on-surface-variant mb-2">Estimated time</label><div class="relative flex items-center"><input class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 text-on-surface focus:ring-2 focus:ring-primary outline-none" type="text"><span class="absolute right-3 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold px-2 py-1 rounded">mins</span></div></div></div><div class="px-6 py-4 border-t border-outline-variant flex justify-end gap-3"><button class="px-6 py-2 text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-high rounded-lg transition-colors">Cancel</button><button class="px-6 py-2 bg-primary text-on-primary font-label-caps text-label-caps rounded-lg hover:bg-primary-container transition-colors shadow-sm">Upload Resource</button></div></div></div>
+
+
+
+</body></html>

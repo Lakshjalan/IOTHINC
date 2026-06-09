@@ -1,0 +1,485 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>IOTHINC Admin View | Progress Tracker</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;family=Geist:wght@500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Hanken+Grotesk:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#dbb8ff",
+                      "on-tertiary-container": "#29292c",
+                      "on-surface-variant": "#cec2d5",
+                      "surface-tint": "#dbb8ff",
+                      "on-tertiary-fixed": "#1b1b1e",
+                      "primary-fixed": "#efdbff",
+                      "surface-bright": "#3a393a",
+                      "secondary-container": "#474649",
+                      "on-primary-container": "#3f0073",
+                      "tertiary-container": "#919094",
+                      "surface-container-low": "#1c1b1c",
+                      "surface-container-highest": "#353436",
+                      "on-secondary-fixed-variant": "#474649",
+                      "outline": "#978d9e",
+                      "on-surface": "#e5e2e3",
+                      "inverse-surface": "#e5e2e3",
+                      "surface-dim": "#131314",
+                      "primary-container": "#b370fc",
+                      "on-primary-fixed-variant": "#6417ab",
+                      "tertiary": "#c8c6c9",
+                      "inverse-on-surface": "#313031",
+                      "on-primary": "#480082",
+                      "error": "#ffb4ab",
+                      "on-tertiary": "#303033",
+                      "on-secondary-fixed": "#1b1b1d",
+                      "on-secondary": "#303032",
+                      "surface-container-lowest": "#0e0e0f",
+                      "secondary-fixed-dim": "#c8c6c8",
+                      "on-primary-fixed": "#2b0052",
+                      "primary-fixed-dim": "#dbb8ff",
+                      "surface": "#131314",
+                      "background": "#131314",
+                      "tertiary-fixed-dim": "#c8c6c9",
+                      "error-container": "#93000a",
+                      "surface-container": "#201f20",
+                      "on-error": "#690005",
+                      "surface-variant": "#353436",
+                      "tertiary-fixed": "#e4e2e5",
+                      "inverse-primary": "#7d38c4",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#4c4453",
+                      "on-background": "#e5e2e3",
+                      "on-tertiary-fixed-variant": "#47464a",
+                      "surface-container-high": "#2a2a2b",
+                      "secondary": "#c8c6c8",
+                      "secondary-fixed": "#e4e2e4",
+                      "on-secondary-container": "#b7b4b7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "section-gap": "80px",
+                      "base": "8px",
+                      "gutter": "16px",
+                      "stack-md": "12px",
+                      "stack-sm": "4px",
+                      "stack-lg": "24px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "mono-data": ["Geist"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "label-caps": ["Geist"],
+                      "headline-xl": ["Hanken Grotesk"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "body-sm": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0b;
+            color: #e5e2e3;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 28, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid #2d2d30;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131314;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #4c4453;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary/30">
+<!-- Side Navigation Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-dim dark:bg-surface-dim bg-surface-container-low border-r border-outline-variant shadow-sm flex flex-col py-gutter z-50">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdE2YeM4tA17LoVon1PAVGwqN4on6892cujGxrdMgSFTdmkF-7UZVwfOHYwBJsHmIsCAaNM2G_ey9rtYPR0dDB8zg0eDc69QN5-JsOkF251azqaWg0dGfeddAp6ACGaiG5XQzA5JrooNwtTapncnMrUsxLQRAkc-NvL-cqONu--yimmk_kpqeC1dzCdKpM6PAYBtA5O2mkaFEXRDAvYR_gmlb90sYdUZSp6CjOwQ8PEKv7UtG3X7eXJrWdFejxOGnhj7-bZD0ZE14" alt="IOTHINC Logo" class="w-full h-auto object-contain"></div>
+</div>
+<nav class="flex-1 px-4 space-y-1 custom-scrollbar overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Members</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span>Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Teams</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined">emoji_events</span>
+<span>Competitions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined">event</span>
+<span>Events</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary bg-primary-container/10 border-r-4 border-primary transition-transform active:scale-95 rounded-r-none rounded-l-xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-medium">Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-secondary-container/20 transition-colors duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span>Admin Panel</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="p-4 rounded-xl bg-surface-container-highest/50 border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<img alt="IOTHINC Club Logo" class="w-10 h-10 rounded-full border border-primary/20 object-cover" data-alt="A professional close-up portrait of a lead technical engineer with a confident expression, set against a dark, technologically themed office background with soft violet ambient lighting and bokeh circuitry patterns. The style is sharp, clean, and modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6AgxGlTLQPKxweRw-1ldYoJpRey77uCHLeryW_ZcXu7bj3SzsXxkcM0MUPtm3S5NY-A7ZZJI7eWixcNu-jWATx1FsYX4IgqfbZtjjUwKtsBAxsVawM-RVD_tg4XAg2GHPdgqVbZYYaTXNrVNN5EFDenYMNZg4wtzKg-8PYth8dPhYJVk59s0TveC1u0n_hQx5FTwReE8cQcAg8jGuhFh5qCitYQ9cKjGF8RnVEpsyzHGP1xa4J-49W_Bwu-u0cbTpHq_qV3Itj_o">
+<div class="overflow-hidden">
+<p class="text-on-surface font-medium truncate">Alex Rivera</p>
+<p class="text-on-surface-variant text-xs truncate">Head of Software</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-surface/80 backdrop-blur-xl bg-surface/80 backdrop-blur-md border-b border-outline-variant flex items-center justify-between px-container-padding z-40">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary">Progress Tracker</h2>
+</div>
+<div class="flex items-center gap-6">
+<!-- View Toggle -->
+<div class="flex bg-surface-container-highest p-1 rounded-full border border-outline-variant">
+<button class="px-4 py-1 text-label-caps font-label-caps text-on-surface-variant hover:text-on-surface transition-colors">Member View</button>
+<button class="px-4 py-1 text-label-caps font-label-caps bg-primary text-on-primary rounded-full shadow-lg shadow-primary/20 transition-all">Admin View</button>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-surface"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-24 pb-12 px-container-padding min-h-screen">
+<!-- Header Content -->
+<div class="mb-stack-lg flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+<div>
+<h3 class="font-headline-xl text-headline-xl text-on-surface mb-2">Team Overview</h3>
+<p class="text-on-surface-variant max-w-2xl">Monitor real-time progress across all technical departments. Filter by member name or department to drill down into specific operational bottlenecks.</p>
+</div>
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-xl outline-none transition-all placeholder:text-outline text-on-surface" placeholder="Search member by name..." type="text">
+</div>
+</div>
+<!-- Dashboard Stats (Contextual Add-on for Admin) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-section-gap">
+<div class="glass-panel p-6 rounded-2xl">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase">Total Members</p>
+<div class="flex items-center gap-4">
+<span class="text-4xl font-headline-lg text-primary">42</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] border border-primary/20">+4 this month</span>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-2xl">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase">Avg. Completion</p>
+<div class="flex items-center gap-4">
+<span class="text-4xl font-headline-lg text-on-surface">78%</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[78%]"></div>
+</div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-2xl">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase">Active Sprints</p>
+<div class="flex items-center gap-4">
+<span class="text-4xl font-headline-lg text-on-surface">06</span>
+<span class="text-on-surface-variant text-sm">On Schedule</span>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-2xl">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-2 uppercase">Critical Blockers</p>
+<div class="flex items-center gap-4">
+<span class="text-4xl font-headline-lg text-error">12</span>
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+</div>
+<!-- Data Table Section -->
+<section class="glass-panel rounded-2xl overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50 border-b border-outline-variant">
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Member</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Dept</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Active Tasks</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Completion %</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Blocked</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Last Update</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<!-- Row 1 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Member Avatar" class="w-10 h-10 rounded-lg object-cover" data-alt="A detailed headshot of a creative software developer with a thoughtful expression, set in a modern workspace illuminated by neon violet and cool blue lighting accents. High-tech, minimalist aesthetic with a professional mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHu3LvXqIMXGuNDuT7xMhPvme2SVhr8nQOLPqlD5yHOE5aosm0cfHpvkiH-KnQpjqA92a1Nl8MaQeaQrV05tdZdCEJdYxKu3GCUOHKp61Kn7ZbHQyD4QkOduaHcsFhenBmJDPl2Zrdrd1hMm58JHxmkDa5QhYwJd7WbaXYuaTvMuw6M0KOZ7ddOLa3AAzY43xeAJ4ZvQKecINszcp_oAm2lICC3HXAOBsCPaaCj1j7C8-I0wnGnsrpu6RaoYJgP3s9A_e6H7DKqXc">
+<div>
+<p class="font-medium text-on-surface">Leo Sterling</p>
+<p class="text-xs text-on-surface-variant">Software Lead</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20">Software</span>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-mono-data">08</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[92%]"></div>
+</div>
+<span class="font-mono-data text-mono-data">92%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-mono-data text-on-surface-variant">0</span>
+</td>
+<td class="px-6 py-5 text-on-surface-variant text-sm">
+                                2m ago
+                            </td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Member Avatar" class="w-10 h-10 rounded-lg object-cover" data-alt="A portrait of a focused hardware engineer woman working in a dark lab setting. Subtle purple lens flares and microchip details in the background. Professional, high-contrast, technical noir visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuART_lVJ-G3cLF8Kapg5thN_kOtEdu8vf1B8aEbVkYZGd2gNn4rFr9OPsAL8GDckvAEc7NEikFm7K9UdbJNXmvzlOrQNOSblnWpxSjkQNg538JU5mRuDUGmitMHfxHMOmMixbN1yCjvLLgALp5B_b0uHm1QDXFEiT5mk1x9yZTu2BqpHw2YDXvUuiCoPoOmsw21jlTVYmL4LTakSvYyFn3pQrDELUTgZsk3LqOnT0n5KhQ1NZlAZqAq9w7aABUIhlqTziPJXcn7g54">
+<div>
+<p class="font-medium text-on-surface">Elena Vance</p>
+<p class="text-xs text-on-surface-variant">Hardware Specialist</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-secondary-container/30 text-secondary text-xs font-medium border border-outline-variant">Hardware</span>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-mono-data">05</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[45%]"></div>
+</div>
+<span class="font-mono-data text-mono-data">45%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-mono-data text-error">03</span>
+</td>
+<td class="px-6 py-5 text-on-surface-variant text-sm">
+                                45m ago
+                            </td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Member Avatar" class="w-10 h-10 rounded-lg object-cover" data-alt="A portrait of a senior system architect in a futuristic dark environment. Lighting is dramatic with purple and cyan hues. The image reflects deep expertise and professional authority in a tech-centric world." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX8wXtNZfw875RJSLPz4fyQu8ux0QrZiCwuPbdOMjSX9XMcNTWpsBOu1tpi14-R1kn9FYGuiGrcYYhOvkCof65i_dmU_R5oDfNa2nKC3z8i0FfoDnPf0HwAEBlJ_LR1H-cG7fziXW64CZe-uI9hFlu0-qFs6yDcZHUsZoDIXmhQ1EQLKs3eQIg646_BS_kFxlOHCEVYr0E6lnxwwMMSy4BGUT8jYvzvEIr0vQZr1SzUZjKX9o7T3FDB0Z_mHgMzL8iArntpFEjeSI">
+<div>
+<p class="font-medium text-on-surface">Marcus Thorne</p>
+<p class="text-xs text-on-surface-variant">IoT Architect</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20">Embedded</span>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-mono-data">12</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[68%]"></div>
+</div>
+<span class="font-mono-data text-mono-data">68%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-mono-data text-on-surface-variant">01</span>
+</td>
+<td class="px-6 py-5 text-on-surface-variant text-sm">
+                                3h ago
+                            </td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Member Avatar" class="w-10 h-10 rounded-lg object-cover" data-alt="A portrait of a lead UI/UX designer specializing in dark mode interfaces. The setting is a minimalist studio with sophisticated violet lighting. Her expression is focused and analytical. Technical noir aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJQ50j1rdywRmujG0lS9l7F8W8m9sl1idJrJB4VyuqUNiAu0-CyNQfA2yDFL4s2lqhRzjif9tamgKijvh30hW_7bmqPvQrwpOcXap3srHF0qBnNpGav_y0RntVORB347JQMq5Jj2GkUipFHPtNuEPgYRqlrT5BuV_tur4IHTpR73-6zKzot2n2BcWekLxLZlf8Oef9594zZkOYxsO_aibssS0zhRo1hbxdUBcbhPGWaom6SET0zOKQHDledVXVErvcAAc9hrDVeeE">
+<div>
+<p class="font-medium text-on-surface">Sarah Chen</p>
+<p class="text-xs text-on-surface-variant">Product Designer</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-secondary-container/30 text-secondary text-xs font-medium border border-outline-variant">Design</span>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-mono-data">04</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+<span class="font-mono-data text-mono-data">85%</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="font-mono-data text-mono-data text-on-surface-variant">0</span>
+</td>
+<td class="px-6 py-5 text-on-surface-variant text-sm">
+                                12m ago
+                            </td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination/Footer -->
+<div class="px-6 py-4 bg-surface-container-high/30 border-t border-outline-variant flex items-center justify-between">
+<p class="text-body-sm text-on-surface-variant">Showing 4 of 42 technical members</p>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container-highest transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Background Atmospheric Effect -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary/5 blur-[150px] rounded-full"></div>
+<div class="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-primary/10 blur-[180px] rounded-full opacity-30"></div>
+</div>
+<script>
+        // Simple micro-interactions
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Search highlight logic simulation
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('tbody tr');
+            
+            rows.forEach(row => {
+                const name = row.querySelector('p.font-medium').textContent.toLowerCase();
+                if (name.includes(query)) {
+                    row.style.display = '';
+                    row.style.opacity = '1';
+                } else {
+                    row.style.opacity = '0.3';
+                    // We keep them visible but dimmed for "Technical Noir" feel
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

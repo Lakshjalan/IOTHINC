@@ -1,0 +1,482 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>IOTHINC - Tasks Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700&amp;family=Geist:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 28, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid #2d2d30;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #131314;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2d2d30;
+            border-radius: 10px;
+        }
+        .task-card:hover .kebab-menu {
+            opacity: 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c8c6c8",
+                        "inverse-surface": "#e5e2e3",
+                        "on-primary-container": "#3f0073",
+                        "on-primary": "#480082",
+                        "primary-fixed-dim": "#dbb8ff",
+                        "inverse-on-surface": "#313031",
+                        "secondary-fixed": "#e4e2e4",
+                        "outline-variant": "#4c4453",
+                        "on-tertiary": "#303033",
+                        "secondary": "#c8c6c8",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#131314",
+                        "surface-tint": "#dbb8ff",
+                        "surface-container-high": "#2a2a2b",
+                        "on-secondary-container": "#b7b4b7",
+                        "background": "#131314",
+                        "tertiary-container": "#919094",
+                        "surface": "#131314",
+                        "primary-container": "#b370fc",
+                        "on-secondary-fixed-variant": "#474649",
+                        "secondary-container": "#474649",
+                        "on-surface-variant": "#cec2d5",
+                        "on-surface": "#e5e2e3",
+                        "tertiary": "#c8c6c9",
+                        "surface-variant": "#353436",
+                        "on-secondary-fixed": "#1b1b1d",
+                        "on-tertiary-fixed": "#1b1b1e",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#29292c",
+                        "surface-container-low": "#1c1b1c",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#353436",
+                        "on-secondary": "#303032",
+                        "tertiary-fixed": "#e4e2e5",
+                        "surface-container-lowest": "#0e0e0f",
+                        "outline": "#978d9e",
+                        "on-tertiary-fixed-variant": "#47464a",
+                        "error-container": "#93000a",
+                        "surface-container": "#201f20",
+                        "surface-bright": "#3a393a",
+                        "on-primary-fixed-variant": "#6417ab",
+                        "inverse-primary": "#7d38c4",
+                        "on-background": "#e5e2e3",
+                        "tertiary-fixed-dim": "#c8c6c9",
+                        "on-primary-fixed": "#2b0052",
+                        "primary-fixed": "#efdbff",
+                        "primary": "#dbb8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "section-gap": "80px",
+                        "container-padding": "24px",
+                        "stack-sm": "4px",
+                        "stack-lg": "24px",
+                        "gutter": "16px",
+                        "stack-md": "12px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "mono-data": ["Geist"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Geist"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md custom-scrollbar selection:bg-primary/30">
+<!-- Sidebar Navigation Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-surface-container-lowest border-r border-outline-variant py-container-padding z-50">
+<div class="px-6 mb-10">
+<img alt="IOTHINC Wordmark" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD0d36_-4n9CnWllFQK6GZMItP-lKexh1igEddyjc7fZ_0gbXlklFxa_gwgmWWAkuzQGSWjFDmjRjVJ9CZJt3a2uTmvLKR3QfCGywlp1DKUVG4cxqiAbfcNVLVags2HFV4wHvYUfxkvIGht6ZhPMI9AgnAjmJ13mhFAintmtHPq7zNoWhPXxoSpP_MLK-QdPqdm-hgZ0IyKYYGsjkffjIAcmScmO07Mtn3mYFmFxDsbTqtMLEYMt6sTOPLm8tzhzlRG_4gDwxcIQk">
+</div>
+<nav class="flex-1 space-y-1 px-4 overflow-y-auto custom-scrollbar">
+<!-- Sidebar Items in Order -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-caps text-label-caps">Members</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+<span class="font-label-caps text-label-caps">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-caps text-label-caps">Teams</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">emoji_events</span>
+<span class="font-label-caps text-label-caps">Competitions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-label-caps">Events</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary font-bold border-r-2 border-primary bg-primary-container/10 transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-caps text-label-caps">Tasks</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-label-caps text-label-caps">Admin Panel</span>
+</div>
+<span class="text-[8px] bg-primary/10 text-primary px-1 rounded border border-primary/20 uppercase tracking-tighter">Admin</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-caps text-label-caps">Learn</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-caps text-label-caps">Reports</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-caps text-label-caps">Profile Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-caps text-label-caps">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen pb-section-gap">
+<!-- Top App Bar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-surface/80 backdrop-blur-xl border-b border-outline-variant flex justify-between items-center h-16 px-container-padding">
+<div class="flex items-center gap-4">
+<span class="text-on-surface-variant font-body-sm text-body-sm">Management / Tasks</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded-full pl-10 pr-4 py-1.5 text-body-sm font-body-sm focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none w-64" placeholder="Global search..." type="text">
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="relative hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border border-surface"></span>
+</button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">help_outline</span></button>
+<div class="h-8 w-8 rounded-full bg-primary-container/20 border border-primary/30 flex items-center justify-center overflow-hidden">
+<img alt="User Profile Avatar" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa0NarbR4ye8cMfyk66XsCHTyBjzWj7LCw7Nppe2MiOBo0aQY8FJnpBEuMXbygoojlQiDDhSS9bhsaOs8GNvbw04Q2ahAbO64MEdx0VYoZG3gAyJINp56OteU3notg1_ZxBe2OiA5pGmt0yzuUTOhFxOHkThKjnc9DvIb-XoEouf0R5yM67yQZc8G5XO7jk_6nIxKk-bsQD8DylkyqjhCY2XsHvavI5PYpUt3rBjqgmTzEDoi-59M-v93tCqrechcb_3uxyzqcdxo">
+</div>
+</div>
+</div>
+</header>
+<!-- Page Header Section -->
+<section class="pt-24 px-container-padding">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-white tracking-tight mb-2">Tasks</h1>
+<p class="text-on-surface-variant font-body-md text-body-md max-w-2xl">Your assigned tasks across all events, projects, and club activities.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-6 py-2.5 bg-primary text-on-primary font-bold rounded-lg hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        Assign Task
+                    </button>
+<button class="p-2.5 border border-outline-variant rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Filter / Sort Row -->
+<div class="flex flex-wrap items-center justify-between gap-4 py-6 border-y border-outline-variant/30">
+<div class="flex items-center gap-2">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary text-label-caps font-label-caps transition-all">All</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-caps font-label-caps hover:text-white transition-all">Active</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-caps font-label-caps hover:text-white transition-all">In Progress</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-caps font-label-caps hover:text-white transition-all">Completed</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-label-caps font-label-caps hover:text-white transition-all">Blocked</button>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-surface-container border border-outline-variant rounded-lg px-3 py-1.5">
+<span class="text-label-caps font-label-caps text-on-surface-variant">Sort:</span>
+<select class="bg-transparent border-none text-body-sm font-body-sm focus:ring-0 text-white cursor-pointer py-0">
+<option>Due Date</option>
+<option>Priority</option>
+<option>Project</option>
+</select>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="bg-surface-container border border-outline-variant rounded-lg pl-9 pr-4 py-2 text-body-sm font-body-sm focus:ring-primary focus:border-primary w-48" placeholder="Filter tasks..." type="text">
+</div>
+</div>
+</div>
+</section>
+<!-- Main Task Content -->
+<section class="px-container-padding mt-8 grid grid-cols-10 gap-gutter items-start">
+<!-- Left Column: Task List (70%) -->
+<div class="col-span-7 space-y-10">
+<!-- Group: In Progress -->
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]"></div>
+<h2 class="text-on-surface font-label-caps text-label-caps tracking-widest">IN PROGRESS</h2>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-mono-data text-on-surface-variant">2</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<div class="space-y-3">
+<!-- Task Card 1 -->
+<div class="task-card group relative bg-surface-container-low border border-outline-variant rounded-lg p-4 flex items-center gap-4 hover:border-primary/50 transition-all duration-300">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 bg-amber-500 rounded-r-full"></div>
+<input class="w-5 h-5 rounded border-outline-variant bg-surface text-primary focus:ring-primary" type="checkbox">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-white font-medium">Prepare slide deck for AI Talk</h3>
+<span class="px-2 py-0.5 bg-primary-container/20 text-primary text-[10px] font-label-caps rounded-full border border-primary/20">Tech Talk event</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant text-[12px]">
+<div class="flex items-center gap-1 text-error">
+<span class="material-symbols-outlined text-[14px]">event_busy</span>
+<span>due Oct 22 (Overdue)</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-error"></div>
+<span>High Priority</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2">
+<img alt="Member Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8YcuXpVA891g6hyLWx-CTeYnhmPSE52zGb-M9jMJKqeFnHHq2XVk7LZdGJ7ukf96Yc-UTkI6sNbVVkj6pYH4X_oafteWyYXAKfnnVdL2Vix1ZrAO62L1AlvHF2pEBLBFX0RlaFJtF-lMeM-9-V5m3zvyTKV36qrTXv3HKBgD_MLEXVSI9wRlNoBSASTLrcxuM2Q8dJrQedF2XVQfa-k42RzO_YYUMEnMt1fp4SoEawz-Fsc1v2Txi3aJ91NMFTw9J5yCvUiHe9A4">
+</div>
+<button class="kebab-menu opacity-0 text-on-surface-variant hover:text-white transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Task Card 2 -->
+<div class="task-card group relative bg-surface-container-low border border-outline-variant rounded-lg p-4 flex items-center gap-4 hover:border-primary/50 transition-all duration-300">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 bg-amber-500 rounded-r-full"></div>
+<input class="w-5 h-5 rounded border-outline-variant bg-surface text-primary focus:ring-primary" type="checkbox">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-white font-medium">Submit PCB schematic review</h3>
+<span class="px-2 py-0.5 bg-primary-container/20 text-primary text-[10px] font-label-caps rounded-full border border-primary/20">Rover Build project</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant text-[12px]">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_month</span>
+<span>due Oct 25</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+<span>Medium Priority</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2">
+<img alt="Member Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX3Pk3F_98ChqOsKLdRwBieDKdjBMRjrNbVlk62_zmh5KSElgQ19kjBMcOjlAtdf1uscf_XIOZwBgGzX95gYqPEDtSlML17H6C7O3gEA0M8Ip9Enjiwqfzmf4pS6J39emuPk9dd8rFH-vk9XLrII-zOQrToepj3tIV3BtZcvwIkvtIKTCSX2DCE0GyTmPsbTlzFP4MDqe3bMP1J7ie9zbQrRVA5lugIQasi3IaHFcW_hVnwXbKdX-tqCHciQoFyzJvoWsZelU6w1I">
+</div>
+<button class="kebab-menu opacity-0 text-on-surface-variant hover:text-white transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Group: Not Started -->
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-outline-variant"></div>
+<h2 class="text-on-surface font-label-caps text-label-caps tracking-widest">NOT STARTED</h2>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-mono-data text-on-surface-variant">2</span>
+</div>
+</div>
+<div class="space-y-3">
+<!-- Task Card 3 -->
+<div class="task-card group relative bg-surface-container-low border border-outline-variant rounded-lg p-4 flex items-center gap-4 hover:border-primary/50 transition-all duration-300">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 bg-outline-variant rounded-r-full"></div>
+<input class="w-5 h-5 rounded border-outline-variant bg-surface text-primary focus:ring-primary" type="checkbox">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-white font-medium">Write project summary report</h3>
+<span class="px-2 py-0.5 bg-primary-container/20 text-primary text-[10px] font-label-caps rounded-full border border-primary/20">Club OS Dashboard</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant text-[12px]">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_month</span>
+<span>due Nov 01</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-outline"></div>
+<span>Low Priority</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2">
+<img alt="Member Avatar" class="w-7 h-7 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9kWY2KoIk4_K8rBIn2vVpjgoTqQGzamHNhjTDxVl3CidOY6l1QwlvQ72QI6lcPx5GcH9JXENosoDlRVh1Cxih2s9EkXiuTDdZHks9dvekF846UAdfgO3jSLI7_0y3_StGWErDa6OD6XrHXSYXaXm3tSJJtV-GbuyG0DdDQFvtsfhSLvR7n6xIQ9yZJej3anK9ncNbE1OfZWctkbeKoz26QYzWhYWTUGHI_5qjwkHFHjkQL45Emg_0lrVWfArtkV2SvSRS1REf-0I">
+</div>
+<button class="kebab-menu opacity-0 text-on-surface-variant hover:text-white transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar (30%) -->
+<div class="col-span-3 sticky top-24 space-y-6">
+<!-- Task Summary Card -->
+<div class="glass-panel p-5 rounded-xl">
+<h3 class="text-on-surface font-label-caps text-label-caps mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">query_stats</span>
+                        Task Summary
+                    </h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container px-4 py-3 rounded-lg border border-outline-variant/30">
+<p class="text-[10px] font-label-caps text-on-surface-variant">TOTAL</p>
+<p class="text-2xl font-mono-data text-white">08</p>
+</div>
+<div class="bg-surface-container px-4 py-3 rounded-lg border border-outline-variant/30">
+<p class="text-[10px] font-label-caps text-on-surface-variant">DONE</p>
+<p class="text-2xl font-mono-data text-primary">02</p>
+</div>
+<div class="bg-surface-container px-4 py-3 rounded-lg border border-outline-variant/30">
+<p class="text-[10px] font-label-caps text-on-surface-variant">IN PROGRESS</p>
+<p class="text-2xl font-mono-data text-amber-500">02</p>
+</div>
+<div class="bg-surface-container px-4 py-3 rounded-lg border border-outline-variant/30">
+<p class="text-[10px] font-label-caps text-on-surface-variant">BLOCKED</p>
+<p class="text-2xl font-mono-data text-error">01</p>
+</div>
+</div>
+</div>
+<!-- Upcoming Deadlines Card -->
+<div class="glass-panel p-5 rounded-xl">
+<h3 class="text-on-surface font-label-caps text-label-caps mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">alarm</span>
+                        Upcoming Deadlines
+                    </h3>
+<div class="space-y-4">
+<div class="space-y-1">
+<div class="flex justify-between text-[11px] mb-1">
+<span class="text-white truncate pr-2">AI Talk Slides</span>
+<span class="text-error font-mono-data">EXPIRED</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-full h-full bg-error"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-[11px] mb-1">
+<span class="text-white truncate pr-2">PCB Schematic</span>
+<span class="text-amber-500 font-mono-data">2 DAYS LEFT</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[85%] h-full bg-amber-500"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Assign New Task Form (Admin) -->
+<div class="glass-panel p-5 rounded-xl border-primary/20">
+<div class="flex items-center gap-2 mb-4">
+<h3 class="text-primary font-label-caps text-label-caps uppercase">Assign New Task</h3>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded border border-primary/20 uppercase tracking-tighter">Admin Only</span>
+</div>
+<form class="space-y-4">
+<div>
+<label class="block text-[10px] font-label-caps text-on-surface-variant mb-1 uppercase">Task Name</label>
+<input class="w-full bg-surface-container border border-outline-variant rounded-lg px-3 py-2 text-body-sm focus:ring-primary focus:border-primary" placeholder="Enter task title..." type="text">
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-[10px] font-label-caps text-on-surface-variant mb-1 uppercase">Assignee</label>
+<select class="w-full bg-surface-container border border-outline-variant rounded-lg px-2 py-2 text-body-sm focus:ring-primary focus:border-primary">
+<option>Select Member</option>
+<option>Alex Chen</option>
+<option>Sarah Moe</option>
+</select>
+</div>
+<div>
+<label class="block text-[10px] font-label-caps text-on-surface-variant mb-1 uppercase">Source</label>
+<select class="w-full bg-surface-container border border-outline-variant rounded-lg px-2 py-2 text-body-sm focus:ring-primary focus:border-primary">
+<option>Project/Event</option>
+<option>Rover Build</option>
+<option>AI Talk</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-[10px] font-label-caps text-on-surface-variant mb-1 uppercase">Due Date</label>
+<input class="w-full bg-surface-container border border-outline-variant rounded-lg px-2 py-2 text-body-sm focus:ring-primary focus:border-primary text-white" type="date">
+</div>
+<div>
+<label class="block text-[10px] font-label-caps text-on-surface-variant mb-1 uppercase">Priority</label>
+<div class="flex gap-1 bg-surface-container p-1 rounded-lg border border-outline-variant">
+<button class="flex-1 py-1 rounded bg-error/20 text-error text-[10px] font-bold" type="button">H</button>
+<button class="flex-1 py-1 rounded bg-surface-container text-on-surface-variant text-[10px]" type="button">M</button>
+<button class="flex-1 py-1 rounded bg-surface-container text-on-surface-variant text-[10px]" type="button">L</button>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary font-bold rounded-lg shadow-[0_4px_12px_rgba(157,90,229,0.3)] hover:opacity-90 active:scale-[0.98] transition-all mt-2" type="button">
+                            Assign Task
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<script>
+        // Simple Micro-interactions
+        document.querySelectorAll('.task-card input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                const card = e.target.closest('.task-card');
+                if (e.target.checked) {
+                    card.style.opacity = '0.5';
+                    card.style.transform = 'scale(0.99)';
+                    card.style.filter = 'grayscale(1)';
+                } else {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                    card.style.filter = 'grayscale(0)';
+                }
+            });
+        });
+    </script>
+</body></html>

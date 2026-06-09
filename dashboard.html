@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IOTHINC Management Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "secondary-fixed": "#e4e2e4",
+                "on-primary-fixed": "#2b0052",
+                "on-tertiary-container": "#29292c",
+                "surface-container-lowest": "#0e0e0f",
+                "on-error": "#690005",
+                "tertiary-fixed": "#e4e2e5",
+                "surface": "#131314",
+                "on-surface-variant": "#cec2d5",
+                "on-error-container": "#ffdad6",
+                "primary-fixed": "#efdbff",
+                "on-tertiary-fixed-variant": "#47464a",
+                "on-tertiary-fixed": "#1b1b1e",
+                "on-secondary-fixed-variant": "#474649",
+                "surface-tint": "#dbb8ff",
+                "on-secondary": "#303032",
+                "on-primary-container": "#3f0073",
+                "surface-container": "#201f20",
+                "inverse-surface": "#e5e2e3",
+                "surface-dim": "#131314",
+                "background": "#131314",
+                "primary-fixed-dim": "#dbb8ff",
+                "surface-variant": "#353436",
+                "on-tertiary": "#303033",
+                "outline": "#978d9e",
+                "outline-variant": "#4c4453",
+                "on-primary-fixed-variant": "#6417ab",
+                "inverse-on-surface": "#313031",
+                "surface-container-low": "#1c1b1c",
+                "on-primary": "#480082",
+                "error-container": "#93000a",
+                "secondary": "#c8c6c8",
+                "error": "#ffb4ab",
+                "surface-container-highest": "#353436",
+                "surface-container-high": "#2a2a2b",
+                "tertiary": "#c8c6c9",
+                "primary": "#dbb8ff",
+                "on-background": "#e5e2e3",
+                "surface-bright": "#3a393a",
+                "primary-container": "#b370fc",
+                "on-secondary-container": "#b7b4b7",
+                "secondary-fixed-dim": "#c8c6c8",
+                "secondary-container": "#474649",
+                "tertiary-fixed-dim": "#c8c6c9",
+                "tertiary-container": "#919094",
+                "on-surface": "#e5e2e3",
+                "on-secondary-fixed": "#1b1b1d",
+                "inverse-primary": "#7d38c4"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "section-gap": "80px",
+                "stack-sm": "4px",
+                "stack-md": "12px",
+                "stack-lg": "24px",
+                "container-padding": "24px",
+                "base": "8px",
+                "gutter": "16px",
+                "sidebar-width": "260px"
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "Hanken Grotesk"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "mono-data": [
+                        "Geist"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "label-caps": [
+                        "Geist"
+                ],
+                "headline-xl": [
+                        "Hanken Grotesk"
+                ],
+                "headline-lg-mobile": [
+                        "Hanken Grotesk"
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "mono-data": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+</head>
+<body class="bg-background text-on-background font-body-sm min-h-screen flex selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col bg-surface fixed left-0 top-0 h-screen w-sidebar-width border-r border-outline-variant shadow-sm py-stack-lg z-50">
+<div class="px-4 pt-4 mb-8">
+<img alt="IOTHINC Logo" class="block w-[160px] h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD0d36_-4n9CnWllFQK6GZMItP-lKexh1igEddyjc7fZ_0gbXlklFxa_gwgmWWAkuzQGSWjFDmjRjVJ9CZJt3a2uTmvLKR3QfCGywlp1DKUVG4cxqiAbfcNVLVags2HFV4wHvYUfxkvIGht6ZhPMI9AgnAjmJ13mhFAintmtHPq7zNoWhPXxoSpP_MLK-QdPqdm-hgZ0IyKYYGsjkffjIAcmScmO07Mtn3mYFmFxDsbTqtMLEYMt6sTOPLm8tzhzlRG_4gDwxcIQk"/>
+<div class="mt-4 h-px w-full bg-white/10" style="background-color: rgba(255,255,255,0.07)"></div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary font-label-caps text-label-caps uppercase py-3 rounded-lg hover:bg-on-primary-fixed-variant transition-colors duration-150 active:scale-[0.98] shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                New Project
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto px-2 space-y-1">
+<!-- Dashboard (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary bg-primary-container/10 border-l-4 border-primary font-bold rounded-r-full active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-caps text-label-caps uppercase">Dashboard</span>
+</a>
+<!-- Mandatory Tabs in Order -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-full active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span>
+<span class="font-label-caps text-label-caps uppercase">Members</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-full active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_tree</span>
+<span class="font-label-caps text-label-caps uppercase">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-full active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">groups</span>
+<span class="font-label-caps text-label-caps uppercase">Teams</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-full active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">emoji_events</span>
+<span class="font-label-caps text-label-caps uppercase">Competitions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-full active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">event_available</span>
+<span class="font-label-caps text-label-caps uppercase">Events</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-full active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<span class="font-label-caps text-label-caps uppercase">Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-full active:scale-[0.98] group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">admin_panel_settings</span>
+<span class="font-label-caps text-label-caps uppercase">Admin Panel</span>
+<span class="ml-auto material-symbols-outlined text-[16px] text-primary" title="Admin Only">lock</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-full active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">school</span>
+<span class="font-label-caps text-label-caps uppercase">Learn</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-full active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assessment</span>
+<span class="font-label-caps text-label-caps uppercase">Reports</span>
+</a>
+</div>
+<div class="mt-auto px-2 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 rounded-full active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">description</span>
+<span class="font-label-caps text-label-caps uppercase">Documentation</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-[260px] min-h-screen relative w-full">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-md fixed top-0 right-0 w-full md:w-[calc(100%-260px)] h-16 z-40 border-b border-outline-variant flex justify-between items-center px-stack-lg">
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface-variant p-2 -ml-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Brand Logo (Mobile specific) -->
+<img alt="IOTHINC Logo" class="md:hidden h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD0d36_-4n9CnWllFQK6GZMItP-lKexh1igEddyjc7fZ_0gbXlklFxa_gwgmWWAkuzQGSWjFDmjRjVJ9CZJt3a2uTmvLKR3QfCGywlp1DKUVG4cxqiAbfcNVLVags2HFV4wHvYUfxkvIGht6ZhPMI9AgnAjmJ13mhFAintmtHPq7zNoWhPXxoSpP_MLK-QdPqdm-hgZ0IyKYYGsjkffjIAcmScmO07Mtn3mYFmFxDsbTqtMLEYMt6sTOPLm8tzhzlRG_4gDwxcIQk"/>
+<!-- Search Bar -->
+<div class="hidden md:flex items-center flex-1 max-w-md relative group">
+<span class="material-symbols-outlined absolute left-3 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-low text-on-surface font-body-sm text-body-sm pl-10 pr-4 py-2 rounded-full border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-outline" placeholder="Search projects, members, events..." type="text"/>
+</div>
+<div class="flex items-center gap-4 ml-auto">
+<!-- Trailing Icon Actions -->
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-high focus-within:ring-2 focus-within:ring-primary">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-high focus-within:ring-2 focus-within:ring-primary relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full ring-2 ring-surface"></span>
+</button>
+<!-- Separator -->
+<div class="w-px h-8 bg-outline-variant hidden sm:block"></div>
+<!-- Trailing Secondary Action: Profile -->
+<button class="flex items-center gap-2 hover:bg-surface-container-high p-1 pr-3 rounded-full transition-colors focus-within:ring-2 focus-within:ring-primary">
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-outline-variant object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNaqMiWFAn3N5e7M0gwmYiSokY3sIvWQwnYZMA0OyBqm4ptCO25QtOwdw1OQ5Rt5QTNH1uDqGHdu_L_t9wzqgFCLo5yIV_baf24Wf-xNCZxCaAlPkv5VLrFh3hXAREI068rYzK2DKm2y8Ru5FLCbUMv8cBS3F9GBx18Fv6wZ0tW9z9zXW40sIJ99UJvYbqJmHvgOnTlgxUFhS-L5JK-ZGbPBgMbAJbxIjoc14U41gx8HweiooxRjpNYkw-1cpZIXohA7GIseo7tbY"/>
+<span class="hidden sm:block font-label-caps text-label-caps uppercase font-medium text-on-surface">Admin</span>
+<span class="material-symbols-outlined text-outline text-sm hidden sm:block">expand_more</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 px-4 md:px-stack-lg pt-24 pb-section-gap max-w-7xl mx-auto w-full">
+<!-- Welcome Header -->
+<div class="mb-8">
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Welcome back, Admin!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Here is what's happening with IOTHINC today.</p>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<!-- Stat Card 1: Active Projects -->
+<div class="bg-surface-container rounded-xl border border-outline-variant p-5 shadow-[0_2px_4px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary-container/10 rounded-lg text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-secondary bg-surface-container-high px-2 py-1 rounded-full">+2 this week</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Active Projects</p>
+<h3 class="font-headline-xl text-headline-xl text-on-surface">12</h3>
+</div>
+</div>
+<!-- Stat Card 2: Total Members -->
+<div class="bg-surface-container rounded-xl border border-outline-variant p-5 shadow-[0_2px_4px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary-container rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-primary bg-primary-container/10 px-2 py-1 rounded-full">+5 new</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Total Members</p>
+<h3 class="font-headline-xl text-headline-xl text-on-surface">85</h3>
+</div>
+</div>
+<!-- Stat Card 3: Upcoming Events -->
+<div class="bg-surface-container rounded-xl border border-outline-variant p-5 shadow-[0_2px_4px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary-fixed rounded-lg text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
+</div>
+</div>
+<div>
+<p class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Upcoming Events</p>
+<h3 class="font-headline-xl text-headline-xl text-on-surface">3</h3>
+</div>
+</div>
+<!-- Stat Card 4: Competition Deadlines -->
+<div class="bg-surface-container rounded-xl border border-outline-variant p-5 shadow-[0_2px_4px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-error-container rounded-lg text-on-error-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">timer</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-error bg-error-container/50 px-2 py-1 rounded-full">Urgent</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps uppercase text-on-surface-variant mb-1">Competition Deadlines</p>
+<h3 class="font-headline-xl text-headline-xl text-on-surface">2</h3>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout for Main Widgets -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Active Projects Widget (Spans 8 cols) -->
+<div class="lg:col-span-8 bg-surface-container rounded-xl border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.02)] flex flex-col">
+<div class="p-5 border-b border-surface-variant flex justify-between items-center">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Active Projects</h3>
+<button class="text-primary font-label-caps text-label-caps uppercase hover:bg-primary-container/10 px-3 py-1.5 rounded-full transition-colors">View All</button>
+</div>
+<div class="p-5 flex-1 flex flex-col gap-5">
+<!-- Project 1 -->
+<div class="group">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-secondary group-hover:bg-primary-container/10 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">code</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Club Website Redesign</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">75%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-secondary group-hover:bg-primary-container/10 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">robot_2</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Autonomous Rover Build</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">40%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-tertiary-container h-2 rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="group">
+<div class="flex justify-between items-center mb-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-secondary group-hover:bg-primary-container/10 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">database</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Member Database Migration</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">90%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2">
+<div class="bg-secondary-container h-2 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Events Widget (Spans 4 cols) -->
+<div class="lg:col-span-4 bg-surface-container rounded-xl border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.02)] flex flex-col">
+<div class="p-5 border-b border-surface-variant">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Upcoming Events</h3>
+</div>
+<div class="p-0 flex-1">
+<!-- Event 1 -->
+<div class="p-4 border-b border-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer flex gap-4">
+<div class="flex flex-col items-center justify-center min-w-[48px] bg-surface-container-high rounded-lg p-2">
+<span class="font-label-caps text-label-caps uppercase text-primary font-bold">OCT</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">24</span>
+</div>
+<div>
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface">Tech Talk: AI in 2024</h4>
+<p class="font-label-caps text-label-caps uppercase text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 18:00 - Room 302
+                                </p>
+<div class="mt-2 inline-flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px]">group</span> 45 Registered
+                                </div>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="p-4 border-b border-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer flex gap-4">
+<div class="flex flex-col items-center justify-center min-w-[48px] bg-surface-container-high rounded-lg p-2">
+<span class="font-label-caps text-label-caps uppercase text-primary font-bold">NOV</span>
+<span class="font-headline-lg text-headline-lg text-on-surface">02</span>
+</div>
+<div>
+<h4 class="font-body-sm text-body-sm font-semibold text-on-surface">Hackathon Kickoff</h4>
+<p class="font-label-caps text-label-caps uppercase text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 09:00 - Main Hall
+                                </p>
+<div class="mt-2 inline-flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px]">group</span> 120 Registered
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Announcements (Spans 6 cols) -->
+<div class="lg:col-span-6 bg-surface-container rounded-xl border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.02)] flex flex-col">
+<div class="p-5 border-b border-surface-variant flex justify-between items-center">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Announcements</h3>
+</div>
+<div class="p-5 space-y-4">
+<div class="flex gap-4">
+<div class="w-2 h-2 mt-2 rounded-full bg-primary shrink-0"></div>
+<div>
+<h4 class="font-body-sm text-body-sm font-medium text-on-surface">New Server Allocation</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">The CS department has granted us access to the new GPU cluster. Project leads, please submit your requests by Friday.</p>
+<span class="font-label-caps text-label-caps uppercase text-outline mt-2 block">2 hours ago • By Admin</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-2 h-2 mt-2 rounded-full bg-surface-variant shrink-0"></div>
+<div>
+<h4 class="font-body-sm text-body-sm font-medium text-on-surface">Q3 Budget Report Available</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">The quarterly financial report has been uploaded to the shared drive for review.</p>
+<span class="font-label-caps text-label-caps uppercase text-outline mt-2 block">1 day ago • By Treasurer</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Calendar/Deadlines (Spans 6 cols) -->
+<div class="lg:col-span-6 bg-surface-container rounded-xl border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.02)] flex flex-col p-5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">October 2024</h3>
+<div class="flex gap-2">
+<button class="p-1 text-on-surface-variant hover:bg-surface-container-high rounded"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="p-1 text-on-surface-variant hover:bg-surface-container-high rounded"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant p-4">
+<!-- Simple conceptual calendar representation -->
+<div class="grid grid-cols-7 gap-1 text-center mb-2 font-label-caps text-label-caps uppercase text-on-surface-variant">
+<div class="">S</div><div class="">M</div><div class="">T</div><div class="">W</div><div class="">T</div><div class="">F</div><div class="">S</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center font-body-sm text-body-sm">
+<!-- Placeholder dates -->
+<div class="p-1 text-outline">29</div><div class="p-1 text-outline">30</div>
+<div class="p-1">1</div><div class="p-1">2</div><div class="p-1">3</div><div class="p-1">4</div><div class="p-1">5</div>
+<div class="p-1">6</div><div class="p-1">7</div><div class="p-1">8</div><div class="p-1">9</div><div class="p-1">10</div><div class="p-1">11</div><div class="p-1 bg-error-container text-on-error-container rounded font-bold relative group cursor-pointer">12<span class="absolute hidden group-hover:block bottom-full mb-1 w-max p-1 bg-inverse-surface text-inverse-on-surface text-xs rounded z-10">Robotics Comp Reg</span></div>
+<div class="p-1">13</div><div class="p-1">14</div><div class="p-1 bg-primary text-on-primary rounded font-bold">15</div><div class="p-1">16</div><div class="p-1">17</div><div class="p-1">18</div><div class="p-1">19</div>
+<div class="p-1">20</div><div class="p-1">21</div><div class="p-1">22</div><div class="p-1">23</div><div class="p-1 bg-tertiary-container text-on-tertiary-container rounded font-bold relative group cursor-pointer">24<span class="absolute hidden group-hover:block bottom-full mb-1 w-max p-1 bg-inverse-surface text-inverse-on-surface text-xs rounded z-10">Tech Talk</span></div><div class="p-1">25</div><div class="p-1">26</div>
+<div class="p-1">27</div><div class="p-1">28</div><div class="p-1">29</div><div class="p-1">30</div><div class="p-1">31</div><div class="p-1 text-outline">1</div><div class="p-1 text-outline">2</div>
+</div>
+</div>
+<div class="mt-4 flex gap-4 font-label-caps text-label-caps uppercase">
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded bg-primary"></div> Today</div>
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded bg-error-container"></div> Deadline</div>
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded bg-tertiary-container"></div> Event</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-dim w-full py-stack-md border-t border-outline-variant mt-auto">
+<div class="flex flex-row justify-between items-center px-stack-lg max-w-7xl mx-auto w-full">
+<span class="font-label-caps text-label-caps uppercase font-bold text-on-surface">© 2024 IOTHINC Management System</span>
+<div class="flex gap-4">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Documentation</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">System Status</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
